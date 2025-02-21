@@ -18,6 +18,12 @@ class MyAppTheme {
       ),
 
     ),
+    appBarTheme: AppBarTheme(
+      backgroundColor: AppStyles.primaryBgColor,
+      elevation: 0,
+      centerTitle: true,
+
+    ),
     inputDecorationTheme: InputDecorationTheme(
       fillColor: Colors.white,
       border: InputBorder.none,

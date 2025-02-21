@@ -2,6 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:trokis_mobile/core/helper/widgets_helper.dart';
 import 'package:trokis_mobile/core/utils/app_constant.dart';
 import 'package:trokis_mobile/core/utils/themes/app_styles.dart';
 import 'package:trokis_mobile/views/screens/auth/components/auth_button.dart';
@@ -25,10 +28,11 @@ class SignInScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              SizedBox(height: 50.h,),
             SizedBox(width: 220.w,height: 200.h,
               child: Image.asset(AppConstant.mainLogo),),
 
-              SizedBox(height: 100.h,),
+
 
              ///number_field_section
              Column(
@@ -44,7 +48,9 @@ class SignInScreen extends StatelessWidget {
                    ),
                  ),
                   SizedBox(height: 10.h),
-                 MyGlobButton(text: 'Continue',onTap: (){},isOutline: false,)
+                 MyGlobButton(text: 'Continue',onTap: (){
+                   WidgetsHelper.userBottomSheet();
+                 },isOutline: false,)
                ],
              ),
               SizedBox(height: 10.h,),
@@ -75,4 +81,6 @@ class SignInScreen extends StatelessWidget {
       ),
     );
   }
+
+
 }

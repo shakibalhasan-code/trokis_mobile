@@ -8,7 +8,8 @@ import '../../global_widgets/secondary_button.dart';
 class AuthButton extends StatelessWidget {
   final String iconPath;
   final String authText;
-  const AuthButton({super.key, required this.iconPath, required this.authText});
+  final Color ? color;
+  const AuthButton({super.key, required this.iconPath, required this.authText, this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class AuthButton extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        SvgPicture.asset(iconPath,width: 11.39.w,height: 11.39.h,),
+        SvgPicture.asset(iconPath,width: 18.w,height: 18.h,color: color,),
         SizedBox(width: 8.w),
         Text('Continue with $authText',style: AppStyles.titleMedium.copyWith(color: Colors.black))
       ],

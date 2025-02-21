@@ -20,6 +20,5 @@ static TextStyle titleMedium = GoogleFonts.montserrat(
 
 static TextStyle titleLarge = GoogleFonts.montserrat(
   fontSize: 20.sp,
-  fontWeight: FontWeight.w700,
   color: textColor);
 }
