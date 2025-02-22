@@ -65,6 +65,8 @@ class SignInScreen extends StatelessWidget {
                               mode: CountryCodePickerMode.dialog,
                               onChanged: (country) {
                                 print('Country code selected: ${country.code}');
+                                debugPrint(
+                                    '---------------Country code selected: ${country}');
                               },
                               initialSelection: 'US',
                               showFlag: true,

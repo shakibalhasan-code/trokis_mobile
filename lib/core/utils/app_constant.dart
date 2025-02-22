@@ -37,4 +37,6 @@ class AppConstant {
   static String downArrowIcon = '$iconPath/down_arrow.svg';
   static String locationIcon = '$iconPath/location.svg';
   static String nextIcon = '$iconPath/next_icon.svg';
+  static String dateIcon = '$iconPath/date_icon.svg';
+  static String timeIcon = '$iconPath/time_icon.svg';
 }

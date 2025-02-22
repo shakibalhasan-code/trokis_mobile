@@ -75,6 +75,28 @@ class StartingLocationScreen extends StatelessWidget {
                   hintText:
                       'Address line 2 (Apt, suite, building, floor, etc.)'),
               SizedBox(height: 8.h),
+              Row(
+                children: [
+                  Expanded(
+                    child: MyTextFeild(
+                        inputType: TextInputType.datetime,
+                        controller: _userLocationController.dateController,
+                        hintText: 'Select Date',
+                        suffixSVGIconPath: AppConstant.dateIcon,
+                        colorIcon: Colors.black),
+                  ),
+                  SizedBox(width: 8.w),
+                  Expanded(
+                    child: MyTextFeild(
+                        inputType: TextInputType.datetime,
+                        controller: _userLocationController.timeController,
+                        hintText: 'Select Time',
+                        suffixSVGIconPath: AppConstant.timeIcon,
+                        colorIcon: Colors.black),
+                  ),
+                ],
+              ),
+              SizedBox(height: 8.h),
               WhiteCardWidget(
                 child: Obx(() => DropdownButton<String>(
                       elevation: 1,
@@ -91,6 +113,42 @@ class StartingLocationScreen extends StatelessWidget {
                           .value, // Use the observable variable
                       items:
                           _userLocationController.locationTypes.map((location) {
+                        return DropdownMenuItem<String>(
+                          value: location,
+                          child: Text(
+                            location,
+                            style:
+                                AppStyles.titleMedium.copyWith(fontSize: 16.sp),
+                          ),
+                        );
+                      }).toList(),
+                      onChanged: (newValue) {
+                        _userLocationController.selectedElevatorType.value =
+                            newValue!;
+                        print(newValue);
+                      },
+                      underline: SizedBox.shrink(), // Remove underline
+                      isExpanded:
+                          true, // Ensure the dropdown takes the full width
+                    )),
+              ),
+              SizedBox(height: 8.h),
+              WhiteCardWidget(
+                child: Obx(() => DropdownButton<String>(
+                      elevation: 1,
+                      iconDisabledColor: Colors.black,
+                      icon: SvgPicture.asset(
+                        AppConstant.downArrowIcon,
+                        width: 20.w,
+                        height: 20.h,
+                        color: Colors.black,
+                      ),
+                      dropdownColor: Colors.white,
+                      borderRadius: BorderRadius.circular(12.r),
+                      value: _userLocationController.selectedElevatorType
+                          .value, // Use the observable variable
+                      items:
+                          _userLocationController.elevatorTypes.map((location) {
                         return DropdownMenuItem<String>(
                           value: location,
                           child: Text(
@@ -169,7 +227,10 @@ class StartingLocationScreen extends StatelessWidget {
                         )
                       ],
                     ),
-                  ))
+                  )),
+              SizedBox(
+                height: 20.h,
+              )
             ],
           ),
         ),

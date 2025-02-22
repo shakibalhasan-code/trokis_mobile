@@ -31,4 +31,6 @@ class UserStartingLocationController extends GetxController {
   /// Controllers for text editing UI
   var destinationAddressController = TextEditingController();
   var secondAdressController = TextEditingController();
+  var dateController = TextEditingController();
+  var timeController = TextEditingController();
 }
