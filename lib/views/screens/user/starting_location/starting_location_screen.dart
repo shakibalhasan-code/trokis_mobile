@@ -3,9 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:trokis_mobile/controller/user_starting_location_controller.dart';
+import 'package:trokis_mobile/controller/user_app_controller/user_starting_location_controller.dart';
 import 'package:trokis_mobile/core/services/map_services.dart';
 import 'package:trokis_mobile/core/utils/app_constant.dart';
+import 'package:trokis_mobile/core/utils/app_route.dart';
 import 'package:trokis_mobile/core/utils/themes/app_styles.dart';
 import 'package:trokis_mobile/views/screens/global_widgets/my_glob_button.dart';
 import 'package:trokis_mobile/views/screens/global_widgets/my_text_feild.dart';
@@ -206,6 +207,7 @@ class StartingLocationScreen extends StatelessWidget {
               ),
               SizedBox(height: 8.h),
               SecondaryButton(
+                  onTap: () => Get.toNamed(AppRoute.itemSelection),
                   buttonColor: Colors.black,
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 15.w),

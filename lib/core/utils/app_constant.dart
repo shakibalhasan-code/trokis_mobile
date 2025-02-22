@@ -39,4 +39,17 @@ class AppConstant {
   static String nextIcon = '$iconPath/next_icon.svg';
   static String dateIcon = '$iconPath/date_icon.svg';
   static String timeIcon = '$iconPath/time_icon.svg';
+  static String appliancesIcon = '$iconPath/appliances_icon.svg';
+  static String bedroomsIcon = '$iconPath/bedrooms_icon.svg';
+  static String boxsIcon = '$iconPath/boxs_icon.svg';
+  static String corporateOfficeIcon = '$iconPath/corporate_office.svg';
+  static String deviconGoogleIcon = '$iconPath/devicon_google.svg';
+  static String diningRoomIcon = '$iconPath/dining_room.svg';
+  static String electronicsIcon = '$iconPath/electronics_icon.svg';
+  static String industrialIcon = '$iconPath/industrial.svg';
+  static String lampsIcon = '$iconPath/lamps.svg';
+  static String livingRoomIcon = '$iconPath/living_rooom_icon.svg';
+  static String miscellaneousIcon = '$iconPath/miscellaneous.svg';
+  static String officeStudioIcon = '$iconPath/office_studio.svg';
+  static String terraceIcon = '$iconPath/terrace.svg';
 }
