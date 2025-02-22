@@ -13,9 +13,9 @@ class MainTabScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Obx(() => Padding(
-        padding: EdgeInsets.symmetric(horizontal: 15.w),
-        child: myTabController.screens[myTabController.selectedIndex.value],
-      )),
+            padding: EdgeInsets.symmetric(horizontal: 15.w),
+            child: myTabController.screens[myTabController.selectedIndex.value],
+          )),
       bottomNavigationBar: Container(
         color: Colors.black,
         child: Padding(
@@ -37,7 +37,8 @@ class MainTabScreen extends StatelessWidget {
           child: BottomNav(
             iconPath: myTabController.tabs[index]['icon']!, // Fixed key name
             title: myTabController.tabs[index]['label']!,
-            isSelected: myTabController.selectedIndex.value == index, // Correct selection check
+            isSelected: myTabController.selectedIndex.value ==
+                index, // Correct selection check
           ),
         );
       }),

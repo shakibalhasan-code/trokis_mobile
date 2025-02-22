@@ -11,9 +11,10 @@ class WidgetsHelper {
         width: double.infinity,
         height: 225.h,
         decoration: BoxDecoration(
-          color: Colors.white, // Move color inside decoration
-          borderRadius: BorderRadius.only(topLeft: Radius.circular(15.r), topRight: Radius.circular(15.r))
-        ),
+            color: Colors.white, // Move color inside decoration
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(15.r),
+                topRight: Radius.circular(15.r))),
         child: Padding(
           padding: EdgeInsets.all(15.r),
           child: Column(
@@ -36,7 +37,6 @@ class WidgetsHelper {
                 onTap: () {
                   Get.back(result: 'driver'); // Returns "driver" when tapped
                   Get.toNamed(AppRoute.forgot);
-
                 },
               ),
             ],
@@ -46,4 +46,8 @@ class WidgetsHelper {
       isScrollControlled: true, // Allows bottom sheet to expand fully if needed
     );
   }
+
+  static showCustomSnackBar(bool isSuccess, String message) =>
+      Get.snackbar(isSuccess ? 'Success' : 'Error', message,
+          backgroundColor: isSuccess ? Colors.green : Colors.red);
 }

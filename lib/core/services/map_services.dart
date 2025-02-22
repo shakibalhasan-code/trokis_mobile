@@ -10,7 +10,7 @@ class MapServices extends GetxService {
   BitmapDescriptor? customMarkerIcon; // Custom marker icon
 
   final Completer<GoogleMapController> controller =
-  Completer<GoogleMapController>();
+      Completer<GoogleMapController>();
 
   static const CameraPosition kGooglePlex = CameraPosition(
     target: LatLng(37.42796133580664, -122.085749655962),
@@ -31,17 +31,17 @@ class MapServices extends GetxService {
   //   );
   // }
 
-  // Update the selected location and change the marker
-  void updateSelectedLocation(LatLng newLocation) {
-    selectedLocation.value = newLocation;
+  // // Update the selected location and change the marker
+  // void updateSelectedLocation(LatLng newLocation) {
+  //   selectedLocation.value = newLocation;
 
-    markers.value = {
-      Marker(
-        markerId: MarkerId("selected_location"),
-        position: newLocation,
-        icon:  BitmapDescriptor.defaultMarker, // Custom icon
-        infoWindow: InfoWindow(title: "Selected Location"),
-      ),
-    };
-  }
+  //   markers.value = {
+  //     Marker(
+  //       markerId: MarkerId("selected_location"),
+  //       position: newLocation,
+  //       icon:  BitmapDescriptor.defaultMarker, // Custom icon
+  //       infoWindow: InfoWindow(title: "Selected Location"),
+  //     ),
+  //   };
+  // }
 }

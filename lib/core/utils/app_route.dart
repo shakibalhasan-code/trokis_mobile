@@ -17,9 +17,9 @@ class AppRoute {
   static final List<GetPage> pages = [
     GetPage(name: splash, page: () => const SplashScreen()),
     GetPage(name: role, page: () => const UserRoleScreen()),
-    GetPage(name: login, page: () => const SignInScreen()),
+    GetPage(name: login, page: () => SignInScreen()),
     GetPage(name: forgot, page: () => const ForgotPassScreen()),
-    GetPage(name: tab, page: () =>  MainTabScreen()),
-    GetPage(name: startingLocation, page: () =>   StartingLocationScreen()),
+    GetPage(name: tab, page: () => MainTabScreen()),
+    GetPage(name: startingLocation, page: () => StartingLocationScreen()),
   ];
 }
