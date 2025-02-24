@@ -59,9 +59,9 @@ class GetPricesScreen extends StatelessWidget {
                 ],
               )),
               MyGlobButton(
-                  text: 'Back to home',
+                  text: 'See avaliable movers',
                   isOutline: false,
-                  onTap: () => Get.offAllNamed(AppRoute.tab)),
+                  onTap: () => Get.offAllNamed(AppRoute.availableMovers)),
               SizedBox(height: 20.h),
             ],
           ),
