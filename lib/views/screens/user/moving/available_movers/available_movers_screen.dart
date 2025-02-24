@@ -38,7 +38,7 @@ class AvailableMoversScreen extends StatelessWidget {
                 child: Obx(
                   () => DropdownButton<String>(
                     // Removes extra vertical space
-                    isDense: false,
+                    isDense: true,
                     // A smaller icon for a compact look
                     icon: const Icon(Icons.arrow_drop_down,
                         size: 18, color: Colors.black),
