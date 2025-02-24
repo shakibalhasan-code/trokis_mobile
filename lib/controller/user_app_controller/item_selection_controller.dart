@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:trokis_mobile/core/utils/app_constant.dart';
 
@@ -16,4 +17,6 @@ class ItemSelectionController extends GetxController {
     {"icon": AppConstant.officeStudioIcon, "title": "Office / Studio"},
     {"icon": AppConstant.terraceIcon, "title": "Terrace"},
   ];
+
+  final additionalController = TextEditingController();
 }

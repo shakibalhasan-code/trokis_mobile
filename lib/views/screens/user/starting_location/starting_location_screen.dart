@@ -84,7 +84,7 @@ class StartingLocationScreen extends StatelessWidget {
                         controller: _userLocationController.dateController,
                         hintText: 'Select Date',
                         suffixSVGIconPath: AppConstant.dateIcon,
-                        colorIcon: Colors.black),
+                        colorIcon: Color(0xff545454)),
                   ),
                   SizedBox(width: 8.w),
                   Expanded(
@@ -93,7 +93,7 @@ class StartingLocationScreen extends StatelessWidget {
                         controller: _userLocationController.timeController,
                         hintText: 'Select Time',
                         suffixSVGIconPath: AppConstant.timeIcon,
-                        colorIcon: Colors.black),
+                        colorIcon: Color(0xff545454)),
                   ),
                 ],
               ),

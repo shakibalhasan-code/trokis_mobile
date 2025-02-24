@@ -37,7 +37,7 @@ class MyTextFeild extends StatelessWidget {
               width: 18.w,
               height: 20.h,
               child: SvgPicture.asset(
-                AppConstant.locationIcon,
+                suffixSVGIconPath,
                 color: colorIcon,
               ),
             ),

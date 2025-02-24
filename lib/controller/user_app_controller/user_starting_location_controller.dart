@@ -24,6 +24,17 @@ class UserStartingLocationController extends GetxController {
     'Stairs are narrow'
   ];
 
+  /// List of elevator types
+  List<String> parkingTypes = [
+    'Freight elevator',
+    'Normal elevator',
+    'No elevator',
+    'Supermarket Chain/Mall',
+    'Farm house',
+    'Stairs are wide',
+    'Stairs are narrow'
+  ];
+
   /// Create elevator-type variable
   var selectedLocationType = 'House'.obs; // Default value
   var selectedElevatorType = 'Freight elevator'.obs; // Default value
