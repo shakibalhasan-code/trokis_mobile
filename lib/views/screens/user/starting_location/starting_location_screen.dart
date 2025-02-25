@@ -38,6 +38,7 @@ class StartingLocationScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
+              /// Google Map
               Container(
                 decoration:
                     BoxDecoration(borderRadius: BorderRadius.circular(12.r)),
@@ -52,191 +53,207 @@ class StartingLocationScreen extends StatelessWidget {
                   onMapCreated: (GoogleMapController controller) {
                     _mapServices.controller.complete(controller);
                   },
-                  // onTap: (LatLng latLng) {
-                  //   mapServices.updateSelectedLocation(latLng); // Call function to update marker
-                  // },
-                  // markers: mapServices.markers,
                 ),
               ),
               SizedBox(height: 8.h),
+
+              /// Address Fields
               MyTextFeild(
-                  inputType: TextInputType.text,
-                  colorIcon: AppStyles.greyIconColor,
-                  suffixSVGIconPath: AppConstant.locationIcon,
-                  controller:
-                      _userLocationController.destinationAddressController,
-                  hintText: 'Destination address'),
+                inputType: TextInputType.text,
+                colorIcon: AppStyles.greyIconColor,
+                suffixSVGIconPath: AppConstant.locationIcon,
+                controller:
+                    _userLocationController.destinationAddressController,
+                hintText: 'Destination address',
+              ),
               SizedBox(height: 8.h),
+
               MyTextFeild(
-                  inputType: TextInputType.text,
-                  colorIcon: AppStyles.greyIconColor,
-                  suffixSVGIconPath: AppConstant.locationIcon,
-                  controller:
-                      _userLocationController.destinationAddressController,
-                  hintText:
-                      'Address line 2 (Apt, suite, building, floor, etc.)'),
+                inputType: TextInputType.text,
+                colorIcon: AppStyles.greyIconColor,
+                suffixSVGIconPath: AppConstant.locationIcon,
+                controller: _userLocationController.secondAddressController,
+                hintText: 'Address line 2 (Apt, suite, building, floor, etc.)',
+              ),
               SizedBox(height: 8.h),
+
+              /// Date & Time Pickers
               Row(
                 children: [
                   Expanded(
                     child: MyTextFeild(
-                        inputType: TextInputType.datetime,
-                        controller: _userLocationController.dateController,
-                        hintText: 'Select Date',
-                        suffixSVGIconPath: AppConstant.dateIcon,
-                        colorIcon: Color(0xff545454)),
+                      inputType: TextInputType.datetime,
+                      controller: _userLocationController.dateController,
+                      hintText: 'Select Date',
+                      suffixSVGIconPath: AppConstant.dateIcon,
+                      colorIcon: Color(0xff545454),
+                    ),
                   ),
                   SizedBox(width: 8.w),
                   Expanded(
                     child: MyTextFeild(
-                        inputType: TextInputType.datetime,
-                        controller: _userLocationController.timeController,
-                        hintText: 'Select Time',
-                        suffixSVGIconPath: AppConstant.timeIcon,
-                        colorIcon: Color(0xff545454)),
+                      inputType: TextInputType.datetime,
+                      controller: _userLocationController.timeController,
+                      hintText: 'Select Time',
+                      suffixSVGIconPath: AppConstant.timeIcon,
+                      colorIcon: Color(0xff545454),
+                    ),
                   ),
                 ],
               ),
               SizedBox(height: 8.h),
-              WhiteCardWidget(
-                child: Obx(() => DropdownButton<String>(
-                      elevation: 1,
-                      iconDisabledColor: Colors.black,
-                      icon: SvgPicture.asset(
-                        AppConstant.downArrowIcon,
-                        width: 20.w,
-                        height: 20.h,
-                        color: Colors.black,
-                      ),
-                      dropdownColor: Colors.white,
-                      borderRadius: BorderRadius.circular(12.r),
-                      value: _userLocationController.selectedLocationType
-                          .value, // Use the observable variable
-                      items:
-                          _userLocationController.locationTypes.map((location) {
-                        return DropdownMenuItem<String>(
-                          value: location,
-                          child: Text(
-                            location,
-                            style:
-                                AppStyles.titleMedium.copyWith(fontSize: 16.sp),
-                          ),
-                        );
-                      }).toList(),
-                      onChanged: (newValue) {
-                        _userLocationController.selectedElevatorType.value =
-                            newValue!;
-                        print(newValue);
-                      },
-                      underline: SizedBox.shrink(), // Remove underline
-                      isExpanded:
-                          true, // Ensure the dropdown takes the full width
-                    )),
+
+              /// Dropdowns (Location Type, Elevator, Parking)
+              _buildDropdown(
+                'Select Location Type',
+                _userLocationController.selectedLocationType,
+                _userLocationController.locationTypes,
               ),
               SizedBox(height: 8.h),
               WhiteCardWidget(
-                child: Obx(() => DropdownButton<String>(
-                      elevation: 1,
-                      iconDisabledColor: Colors.black,
-                      icon: SvgPicture.asset(
-                        AppConstant.downArrowIcon,
-                        width: 20.w,
-                        height: 20.h,
-                        color: Colors.black,
+                  height: 60.h,
+                  child: Row(
+                    children: [
+                      Text(
+                        'Floor level',
+                        style: AppStyles.titleMedium.copyWith(fontSize: 16.sp),
                       ),
-                      dropdownColor: Colors.white,
-                      borderRadius: BorderRadius.circular(12.r),
-                      value: _userLocationController.selectedElevatorType
-                          .value, // Use the observable variable
-                      items:
-                          _userLocationController.elevatorTypes.map((location) {
-                        return DropdownMenuItem<String>(
-                          value: location,
-                          child: Text(
-                            location,
-                            style:
-                                AppStyles.titleMedium.copyWith(fontSize: 16.sp),
-                          ),
-                        );
-                      }).toList(),
-                      onChanged: (newValue) {
-                        _userLocationController.selectedElevatorType.value =
-                            newValue!;
-                        print(newValue);
-                      },
-                      underline: SizedBox.shrink(), // Remove underline
-                      isExpanded:
-                          true, // Ensure the dropdown takes the full width
-                    )),
-              ),
-              SizedBox(height: 8.h),
-              WhiteCardWidget(
-                child: Obx(() => DropdownButton<String>(
-                      elevation: 1,
-                      iconDisabledColor: Colors.black,
-                      icon: SvgPicture.asset(
-                        AppConstant.downArrowIcon,
-                        width: 20.w,
-                        height: 20.h,
-                        color: Colors.black,
-                      ),
-                      dropdownColor: Colors.white,
-                      borderRadius: BorderRadius.circular(12.r),
-                      value: _userLocationController.selectedElevatorType
-                          .value, // Use the observable variable
-                      items:
-                          _userLocationController.elevatorTypes.map((location) {
-                        return DropdownMenuItem<String>(
-                          value: location,
-                          child: Text(
-                            location,
-                            style:
-                                AppStyles.titleMedium.copyWith(fontSize: 16.sp),
-                          ),
-                        );
-                      }).toList(),
-                      onChanged: (newValue) {
-                        _userLocationController.selectedElevatorType.value =
-                            newValue!;
-                        print(newValue);
-                      },
-                      underline: SizedBox.shrink(), // Remove underline
-                      isExpanded:
-                          true, // Ensure the dropdown takes the full width
-                    )),
-              ),
-              SizedBox(height: 8.h),
-              SecondaryButton(
-                  onTap: () => Get.toNamed(AppRoute.itemSelection),
-                  buttonColor: Colors.black,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 15.w),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Expanded(
-                          child: Text(
-                            textAlign: TextAlign.center,
-                            'Next',
-                            style: AppStyles.titleMedium
-                                .copyWith(color: Colors.white, fontSize: 18.sp),
-                          ),
+                      const Spacer(),
+                      Obx(
+                        () => Text(
+                          _userLocationController.selectedFloorLevel.value
+                              .toString(),
+                          style: AppStyles.titleMedium
+                              .copyWith(fontSize: 16.sp, color: floorColor),
                         ),
-                        SvgPicture.asset(
-                          AppConstant.nextIcon,
-                          width: 24.w,
-                          height: 24.h,
-                        )
-                      ],
-                    ),
+                      ),
+                      SizedBox(width: 8.w),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          InkWell(
+                            onTap: () => incrementFloorLevel(),
+                            child: Icon(Icons.keyboard_arrow_up_rounded,
+                                color: Colors.black),
+                          ),
+                          InkWell(
+                            onTap: () => decrementFloorLevel(),
+                            child: Icon(Icons.keyboard_arrow_down_rounded,
+                                color: Colors.black),
+                          )
+                        ],
+                      )
+                    ],
                   )),
-              SizedBox(
-                height: 20.h,
-              )
+              SizedBox(height: 8.h),
+
+              _buildDropdown(
+                'Is there any elevator?',
+                _userLocationController.selectedElevatorType,
+                _userLocationController.elevatorTypes,
+              ),
+              SizedBox(height: 8.h),
+
+              _buildDropdown(
+                'Choose Parking Type',
+                _userLocationController.selectedParkingType,
+                _userLocationController.parkingTypes,
+              ),
+              SizedBox(height: 8.h),
+
+              /// Next Button
+              SecondaryButton(
+                onTap: () => Get.toNamed(AppRoute.itemSelection),
+                buttonColor: Colors.black,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 15.w),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          textAlign: TextAlign.center,
+                          'Next',
+                          style: AppStyles.titleMedium
+                              .copyWith(color: Colors.white, fontSize: 18.sp),
+                        ),
+                      ),
+                      SvgPicture.asset(
+                        AppConstant.nextIcon,
+                        width: 24.w,
+                        height: 24.h,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 20.h),
             ],
           ),
         ),
       ),
     );
+  }
+
+  /// **Reusable Dropdown Widget**
+  Widget _buildDropdown(
+      String hint, RxString selectedValue, List<String> items) {
+    return WhiteCardWidget(
+      child: Obx(() => DropdownButton<String>(
+            elevation: 1,
+            hint: Text(hint),
+            iconDisabledColor: Colors.black,
+            icon: SvgPicture.asset(
+              AppConstant.downArrowIcon,
+              width: 20.w,
+              height: 20.h,
+              color: Colors.black,
+            ),
+            dropdownColor: Colors.white,
+            borderRadius: BorderRadius.circular(12.r),
+            value: selectedValue.value,
+            items: items.map((item) {
+              return DropdownMenuItem<String>(
+                value: item,
+                child: Text(
+                  item,
+                  style: AppStyles.titleMedium.copyWith(fontSize: 16.sp),
+                ),
+              );
+            }).toList(),
+            onChanged: (newValue) {
+              if (newValue != null) {
+                selectedValue.value = newValue;
+              }
+            },
+            underline: SizedBox.shrink(),
+            isExpanded: true,
+          )),
+    );
+  }
+
+  void incrementFloorLevel() {
+    if (_userLocationController.selectedFloorLevel.value < 20) {
+      _userLocationController.selectedFloorLevel.value++;
+    }
+  }
+
+  void decrementFloorLevel() {
+    if (_userLocationController.selectedFloorLevel.value > 0) {
+      _userLocationController.selectedFloorLevel.value--;
+    }
+  }
+
+  Color get floorColor {
+    if (_userLocationController.selectedFloorLevel.value < 5) {
+      return Colors.green;
+    } else if (_userLocationController.selectedFloorLevel.value < 10) {
+      return Colors.purple;
+    } else if (_userLocationController.selectedFloorLevel.value < 15) {
+      return Colors.orange;
+    } else {
+      return Colors.red;
+    }
   }
 }

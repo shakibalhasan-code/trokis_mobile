@@ -11,12 +11,12 @@ import 'package:trokis_mobile/views/screens/user/item_selection/item_selections_
 
 class AppBinding {
   static Bindings appBinding = BindingsBuilder(() {
-    Get.lazyPut(() => MyTabController());
-    Get.lazyPut(() => HomeController());
-    Get.lazyPut(() => MapServices());
-    Get.lazyPut(() => AuthController());
-    Get.lazyPut(() => UserStartingLocationController());
-    Get.lazyPut(() => ItemSelectionController());
-    Get.lazyPut(() => MoversController());
+    Get.lazyPut(() => MyTabController(), fenix: true);
+    Get.lazyPut(() => HomeController(), fenix: true);
+    Get.lazyPut(() => MapServices(), fenix: true);
+    Get.lazyPut(() => AuthController(), fenix: true);
+    Get.lazyPut(() => UserStartingLocationController(), fenix: true);
+    Get.lazyPut(() => ItemSelectionController(), fenix: true);
+    Get.lazyPut(() => MoversController(), fenix: true);
   });
 }

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
 class UserStartingLocationController extends GetxController {
+  var selectedFloorLevel = 2.obs;
+
   /// List of location types
   List<String> locationTypes = [
+    'Location Type',
     'House',
     'Apartment',
     'Office/Retail Space',
@@ -15,6 +17,7 @@ class UserStartingLocationController extends GetxController {
 
   /// List of elevator types
   List<String> elevatorTypes = [
+    'Is there any elevator',
     'Freight elevator',
     'Normal elevator',
     'No elevator',
@@ -24,24 +27,31 @@ class UserStartingLocationController extends GetxController {
     'Stairs are narrow'
   ];
 
-  /// List of elevator types
+  /// List of parking types
   List<String> parkingTypes = [
-    'Freight elevator',
-    'Normal elevator',
-    'No elevator',
+    'Parking Type',
+    'Garage Parking',
+    'Street Parking',
+    'Dedicated Parking Space',
     'Supermarket Chain/Mall',
     'Farm house',
-    'Stairs are wide',
-    'Stairs are narrow'
+    'Other'
   ];
 
-  /// Create elevator-type variable
-  var selectedLocationType = 'House'.obs; // Default value
-  var selectedElevatorType = 'Freight elevator'.obs; // Default value
+  /// Reactive selected values
+  var selectedLocationType = 'Location Type'.obs;
+  var selectedElevatorType = 'Is there any elevator'.obs;
+  var selectedParkingType = 'Parking Type'.obs;
 
-  /// Controllers for text editing UI
+  ///user_data
+  var selectedDate = 'Select Date'.obs;
+  var selectedTime = 'Select Time'.obs;
+
+  /// Controllers for text input fields
   var destinationAddressController = TextEditingController();
-  var secondAdressController = TextEditingController();
+  var secondAddressController = TextEditingController();
   var dateController = TextEditingController();
   var timeController = TextEditingController();
+
+  void selectDate() {}
 }

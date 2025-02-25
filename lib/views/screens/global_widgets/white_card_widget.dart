@@ -4,11 +4,13 @@ import 'package:trokis_mobile/core/utils/themes/app_styles.dart';
 
 class WhiteCardWidget extends StatelessWidget {
   final Widget child;
-  const WhiteCardWidget({super.key, required this.child});
+  final double? height;
+  const WhiteCardWidget({super.key, required this.child, this.height});
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: height ?? 50.h,
       width: double.infinity,
       decoration: BoxDecoration(
           color: Colors.white,

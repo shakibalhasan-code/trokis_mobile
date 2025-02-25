@@ -50,4 +50,13 @@ class WidgetsHelper {
   static showCustomSnackBar(bool isSuccess, String message) =>
       Get.snackbar(isSuccess ? 'Success' : 'Error', message,
           backgroundColor: isSuccess ? Colors.green : Colors.red);
+
+  static Future<DateTime?> showDatePickerDialog() {
+    return showDatePicker(
+      context: Get.overlayContext!,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2100),
+    );
+  }
 }
