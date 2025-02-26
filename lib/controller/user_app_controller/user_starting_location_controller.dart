@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class UserStartingLocationController extends GetxController {
+  ///user_data
   var selectedFloorLevel = 2.obs;
+  var selectedDate = 'Select Date'.obs;
+  var selectedTime = 'Select Time'.obs;
 
   /// List of location types
   List<String> locationTypes = [
@@ -43,22 +46,36 @@ class UserStartingLocationController extends GetxController {
   var selectedElevatorType = 'Is there any elevator'.obs;
   var selectedParkingType = 'Parking Type'.obs;
 
-  ///user_data
-  var selectedDate = 'Select Date'.obs;
-  var selectedTime = 'Select Time'.obs;
-
   /// Controllers for text input fields
   var destinationAddressController = TextEditingController();
   var secondAddressController = TextEditingController();
   var dateController = TextEditingController();
   var timeController = TextEditingController();
 
-  // Future<DateTime> selectDate() {
-  //   return showDatePicker(
-  //     context: Get.context!,
-  //     initialDate: DateTime.now(),
-  //     firstDate: DateTime.now(),
-  //     lastDate: DateTime(2025),
-  //   );
-  // }
+  Future<DateTime?> selectDate() {
+    return showDatePicker(
+      context: Get.context!,
+      initialDate: DateTime.now(),
+      firstDate: DateTime.now(),
+      lastDate: DateTime(2050),
+    );
+  }
+
+  Future<void> selectTime() async {
+    TimeOfDay? pickedTime = await showTimePicker(
+      context: Get.context!,
+      initialTime: TimeOfDay.now(),
+    );
+
+    if (pickedTime != null) {
+      formatTime(pickedTime);
+    }
+  }
+
+  /// 🔥 Function to format `TimeOfDay` as `hh:mm a` (AM/PM format)
+  void formatTime(TimeOfDay time) {
+    final now = DateTime.now();
+    final dt = DateTime(now.year, now.month, now.day, time.hour, time.minute);
+    selectedTime.value = TimeOfDay.fromDateTime(dt).format(Get.context!);
+  }
 }

@@ -31,23 +31,26 @@ class StartingLocationScreen extends StatelessWidget {
             child: GoogleMap(
               zoomControlsEnabled: false,
               zoomGesturesEnabled: true,
-              mapType: MapType.normal,
               myLocationEnabled: true,
+              mapType: MapType.normal,
               initialCameraPosition: MapServices.kGooglePlex,
               onMapCreated: (GoogleMapController controller) {
                 if (!_mapServices.controller.isCompleted) {
-                  // ✅ Prevent multiple completions
                   _mapServices.controller.complete(controller);
                 }
+                _mapServices
+                    .fetchAndSetUserLocation(); // ✅ Ensure location is fetched on map creation
               },
+              markers: _mapServices
+                  .markers.value, // ✅ Ensure markers are passed to the map
             ),
           ),
 
           /// Draggable Scrollable Bottom Sheet with all fields
           DraggableScrollableSheet(
-            initialChildSize: 0.12.h,
-            minChildSize: 0.12.h,
-            maxChildSize: 0.95,
+            initialChildSize: 0.18.h,
+            minChildSize: 0.18.h,
+            maxChildSize: 0.80,
             builder: (context, scrollController) {
               return Container(
                 decoration: BoxDecoration(
@@ -95,13 +98,16 @@ class StartingLocationScreen extends StatelessWidget {
                       const Divider(),
 
                       /// Address Fields
-                      MyTextFeild(
-                        inputType: TextInputType.text,
-                        colorIcon: AppStyles.greyIconColor,
-                        suffixSVGIconPath: AppConstant.locationIcon,
-                        controller: _userLocationController
-                            .destinationAddressController,
-                        hintText: 'Destination address',
+                      Obx(
+                        () => MyTextFeild(
+                          isEditable: false,
+                          inputType: TextInputType.text,
+                          colorIcon: AppStyles.greyIconColor,
+                          suffixSVGIconPath: AppConstant.locationIcon,
+                          controller: _userLocationController
+                              .destinationAddressController,
+                          hintText: _mapServices.userAddress.value,
+                        ),
                       ),
                       SizedBox(height: 8.h),
 
@@ -120,24 +126,43 @@ class StartingLocationScreen extends StatelessWidget {
                       Row(
                         children: [
                           Expanded(
-                            child: MyTextFeild(
-                              inputType: TextInputType.datetime,
-                              controller:
-                                  _userLocationController.dateController,
-                              hintText: 'Select Date',
-                              suffixSVGIconPath: AppConstant.dateIcon,
-                              colorIcon: Color(0xff545454),
+                            child: InkWell(
+                              onTap: () async {
+                                final date =
+                                    await _userLocationController.selectDate();
+                                if (date != null) {
+                                  _userLocationController.selectedDate.value =
+                                      date.toString().split(' ')[0];
+                                }
+                              },
+                              child: Obx(() => MyTextFeild(
+                                    isEditable: false,
+                                    inputType: TextInputType.datetime,
+                                    controller:
+                                        _userLocationController.dateController,
+                                    hintText: _userLocationController
+                                        .selectedDate.value,
+                                    suffixSVGIconPath: AppConstant.dateIcon,
+                                    colorIcon: Color(0xff545454),
+                                  )),
                             ),
                           ),
                           SizedBox(width: 8.w),
                           Expanded(
-                            child: MyTextFeild(
-                              inputType: TextInputType.datetime,
-                              controller:
-                                  _userLocationController.timeController,
-                              hintText: 'Select Time',
-                              suffixSVGIconPath: AppConstant.timeIcon,
-                              colorIcon: Color(0xff545454),
+                            child: InkWell(
+                              onTap: () async {
+                                await _userLocationController.selectTime();
+                              },
+                              child: Obx(() => MyTextFeild(
+                                    isEditable: false,
+                                    inputType: TextInputType.datetime,
+                                    controller:
+                                        _userLocationController.timeController,
+                                    hintText: _userLocationController
+                                        .selectedTime.value,
+                                    suffixSVGIconPath: AppConstant.timeIcon,
+                                    colorIcon: Color(0xff545454),
+                                  )),
                             ),
                           ),
                         ],
@@ -154,7 +179,7 @@ class StartingLocationScreen extends StatelessWidget {
 
                       /// Floor Level Selector
                       WhiteCardWidget(
-                        height: 50.h,
+                        height: 55.h,
                         child: Row(
                           children: [
                             Text(
@@ -251,6 +276,19 @@ class StartingLocationScreen extends StatelessWidget {
               ),
             ),
           ),
+
+          Positioned(
+              left: 0,
+              right: 0,
+              top: 0,
+              bottom: 0,
+              child: Obx(() => _mapServices.isLoading.value
+                  ? Center(
+                      child: CircularProgressIndicator(
+                        valueColor: AlwaysStoppedAnimation<Color>(Colors.black),
+                      ),
+                    )
+                  : SizedBox.shrink())),
         ],
       ),
     );

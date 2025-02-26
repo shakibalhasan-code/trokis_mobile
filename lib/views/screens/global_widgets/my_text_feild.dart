@@ -11,13 +11,15 @@ class MyTextFeild extends StatelessWidget {
   final String hintText;
   final String suffixSVGIconPath;
   final Color colorIcon;
+  final bool? isEditable;
   const MyTextFeild(
       {super.key,
       required this.inputType,
       required this.controller,
       required this.hintText,
       required this.suffixSVGIconPath,
-      required this.colorIcon});
+      required this.colorIcon,
+      this.isEditable});
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +32,11 @@ class MyTextFeild extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 5),
         child: TextFormField(
           decoration: InputDecoration(
+            enabled: isEditable ?? true,
             hintText: hintText,
             hintStyle: AppStyles.titleMedium.copyWith(fontSize: 16.sp),
             border: InputBorder.none,
-            suffixIcon: Container(
+            suffixIcon: SizedBox(
               width: 18.w,
               height: 20.h,
               child: SvgPicture.asset(
