@@ -53,5 +53,12 @@ class UserStartingLocationController extends GetxController {
   var dateController = TextEditingController();
   var timeController = TextEditingController();
 
-  void selectDate() {}
+  // Future<DateTime> selectDate() {
+  //   return showDatePicker(
+  //     context: Get.context!,
+  //     initialDate: DateTime.now(),
+  //     firstDate: DateTime.now(),
+  //     lastDate: DateTime(2025),
+  //   );
+  // }
 }
