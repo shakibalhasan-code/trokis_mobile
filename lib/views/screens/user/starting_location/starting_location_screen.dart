@@ -43,6 +43,14 @@ class StartingLocationScreen extends StatelessWidget {
               },
               markers: _mapServices
                   .markers.value, // ✅ Ensure markers are passed to the map
+              polylines: {
+                Polyline(
+                  polylineId: const PolylineId("route"),
+                  points: _mapServices.polylineCoordinates,
+                  color: const Color(0xFF7B61FF),
+                  width: 6,
+                ),
+              },
             ),
           ),
 
@@ -98,17 +106,14 @@ class StartingLocationScreen extends StatelessWidget {
                       const Divider(),
 
                       /// Address Fields
-                      Obx(
-                        () => MyTextFeild(
-                          isEditable: false,
+                      MyTextFeild(
+                          isEditable: true,
                           inputType: TextInputType.text,
                           colorIcon: AppStyles.greyIconColor,
                           suffixSVGIconPath: AppConstant.locationIcon,
                           controller: _userLocationController
                               .destinationAddressController,
-                          hintText: _mapServices.userAddress.value,
-                        ),
-                      ),
+                          hintText: 'Destination Address'),
                       SizedBox(height: 8.h),
 
                       MyTextFeild(

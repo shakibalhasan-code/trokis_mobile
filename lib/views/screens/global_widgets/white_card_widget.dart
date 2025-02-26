@@ -10,7 +10,7 @@ class WhiteCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height ?? 50.h,
+      height: height,
       width: double.infinity,
       decoration: BoxDecoration(
           color: Colors.white,
