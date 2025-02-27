@@ -59,28 +59,28 @@ class SignInScreen extends StatelessWidget {
                       ),
                       child: IntrinsicHeight(
                         child: Row(
-                          crossAxisAlignment: CrossAxisAlignment
-                              .stretch, // ✅ Ensures equal height
                           children: [
                             CountryCodePicker(
-                              mode: CountryCodePickerMode.dialog,
+                              elevation: 0,
+                              backgroundColor: Colors.white,
+                              boxDecoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5.r)),
+                              mode: CountryCodePickerMode.bottomSheet,
                               onChanged: (country) {
                                 print('Country code selected: ${country.code}');
                               },
                               initialSelection: 'US',
                               showFlag: true,
-                              showDropDownButton: true,
+                              showDropDownButton: false,
                               textStyle: AppStyles.titleMedium.copyWith(
                                   fontSize: 14.sp), // ✅ Make text smaller
                             ),
-                            VerticalDivider(
-                                width: 1,
-                                color: Colors.grey), // ✅ Thin border separator
                             Expanded(
                               child: Padding(
                                 padding: EdgeInsets.symmetric(
                                     horizontal: 8.w), // ✅ Adjust padding
                                 child: TextFormField(
+                                  keyboardType: TextInputType.number,
                                   controller:
                                       _authController.userPhoneNumberController,
                                   decoration: const InputDecoration(

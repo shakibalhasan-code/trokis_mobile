@@ -16,13 +16,16 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppStyles.primaryBgColor,
       body: SafeArea(
-          child: Expanded(
-              child: ListView.builder(
-                  padding: EdgeInsets.only(bottom: 20.h, top: 20.h),
-                  itemCount: homeController.homeCategory.length,
-                  itemBuilder: (context, index) {
-                    return categoryItemHome(index);
-                  }))),
+          child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 15.w),
+        child: Expanded(
+            child: ListView.builder(
+                padding: EdgeInsets.only(bottom: 20.h, top: 20.h),
+                itemCount: homeController.homeCategory.length,
+                itemBuilder: (context, index) {
+                  return categoryItemHome(index);
+                })),
+      )),
     );
   }
 

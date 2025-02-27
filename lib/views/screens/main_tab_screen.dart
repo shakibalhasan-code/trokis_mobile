@@ -12,10 +12,8 @@ class MainTabScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Obx(() => Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15.w),
-            child: myTabController.screens[myTabController.selectedIndex.value],
-          )),
+      body: Obx(
+          () => myTabController.screens[myTabController.selectedIndex.value]),
       bottomNavigationBar: Container(
         color: Colors.black,
         child: Padding(

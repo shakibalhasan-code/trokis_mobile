@@ -43,14 +43,14 @@ class StartingLocationScreen extends StatelessWidget {
               },
               markers: _mapServices
                   .markers.value, // ✅ Ensure markers are passed to the map
-              polylines: {
-                Polyline(
-                  polylineId: const PolylineId("route"),
-                  points: _mapServices.polylineCoordinates,
-                  color: const Color(0xFF7B61FF),
-                  width: 6,
-                ),
-              },
+              // polylines: {
+              //   Polyline(
+              //     polylineId: const PolylineId("route"),
+              //     points: _mapServices.polylineCoordinates,
+              //     color: const Color(0xFF7B61FF),
+              //     width: 6,
+              //   ),
+              // },
             ),
           ),
 
