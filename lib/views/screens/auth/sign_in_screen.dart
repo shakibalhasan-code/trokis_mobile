@@ -57,37 +57,50 @@ class SignInScreen extends StatelessWidget {
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(8.r),
                       ),
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: 120.w, // Adjust this value as needed
-                            child: CountryCodePicker(
+                      child: IntrinsicHeight(
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment
+                              .stretch, // ✅ Ensures equal height
+                          children: [
+                            CountryCodePicker(
                               mode: CountryCodePickerMode.dialog,
                               onChanged: (country) {
                                 print('Country code selected: ${country.code}');
-                                debugPrint(
-                                    '---------------Country code selected: ${country}');
                               },
                               initialSelection: 'US',
                               showFlag: true,
                               showDropDownButton: true,
+                              textStyle: AppStyles.titleMedium.copyWith(
+                                  fontSize: 14.sp), // ✅ Make text smaller
                             ),
-                          ),
-                          SizedBox(width: 5.w),
-                          Expanded(
-                            child: TextFormField(
-                              controller:
-                                  _authController.userPhoneNumberController,
-                              decoration: const InputDecoration(filled: false),
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Please fill up this field';
-                                }
-                                return null;
-                              },
+                            VerticalDivider(
+                                width: 1,
+                                color: Colors.grey), // ✅ Thin border separator
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 8.w), // ✅ Adjust padding
+                                child: TextFormField(
+                                  controller:
+                                      _authController.userPhoneNumberController,
+                                  decoration: const InputDecoration(
+                                    border: InputBorder
+                                        .none, // ✅ Remove default border
+                                    contentPadding: EdgeInsets.symmetric(
+                                        vertical:
+                                            14), // ✅ Adjust vertical padding
+                                  ),
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'Please enter your phone number';
+                                    }
+                                    return null;
+                                  },
+                                ),
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                     SizedBox(height: 10.h),

@@ -7,8 +7,13 @@ class SecondaryButton extends StatelessWidget {
   final Color? buttonColor;
   final Widget child;
   final VoidCallback? onTap;
+  final int? buttonHeight;
   const SecondaryButton(
-      {super.key, required this.child, this.buttonColor, this.onTap});
+      {super.key,
+      required this.child,
+      this.buttonColor,
+      this.onTap,
+      this.buttonHeight});
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +22,10 @@ class SecondaryButton extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: buttonColor ?? AppStyles.simpleBlack,
-          borderRadius: BorderRadius.circular(12.r),
+          borderRadius: BorderRadius.circular(6.r),
         ),
-        child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 12.h), child: child),
+        child:
+            Padding(padding: EdgeInsets.symmetric(vertical: 8.h), child: child),
       ),
     );
   }

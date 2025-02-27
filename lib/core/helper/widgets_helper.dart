@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:trokis_mobile/core/utils/app_route.dart';
+import 'package:trokis_mobile/core/utils/themes/app_styles.dart';
 import 'package:trokis_mobile/views/screens/global_widgets/my_glob_button.dart';
 
 class WidgetsHelper {
@@ -57,6 +58,17 @@ class WidgetsHelper {
       initialDate: DateTime.now(),
       firstDate: DateTime(2000),
       lastDate: DateTime(2100),
+    );
+  }
+
+  static showAppBar({required String title}) {
+    return AppBar(
+      backgroundColor: Colors.transparent,
+      title: Text(title,
+          style: AppStyles.titleMedium.copyWith(color: Colors.black)),
+      leading: IconButton(
+          onPressed: () => Get.back(),
+          icon: Icon(Icons.arrow_back_ios_new_rounded, color: Colors.black)),
     );
   }
 }

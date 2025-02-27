@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:trokis_mobile/controller/user_app_controller/movers_controller.dart';
+import 'package:trokis_mobile/core/utils/app_constant.dart';
+import 'package:trokis_mobile/core/utils/app_route.dart';
 import 'package:trokis_mobile/core/utils/themes/app_styles.dart';
+import 'package:trokis_mobile/views/screens/user/moving/items/movers_item.dart';
 import 'package:trokis_mobile/views/screens/user/moving/items/moving_category_item.dart';
 
 class AvailableMoversScreen extends StatelessWidget {
@@ -15,7 +19,9 @@ class AvailableMoversScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppStyles.primaryBgColor,
       appBar: AppBar(
-        title: Text('Estimates', style: AppStyles.titleMedium),
+        title: Text('Estimates',
+            style: AppStyles.titleMedium
+                .copyWith(fontSize: 18.sp, color: Colors.black)),
         centerTitle: true,
         leading: IconButton(
           onPressed: () => Get.back(),
@@ -31,9 +37,7 @@ class AvailableMoversScreen extends StatelessWidget {
           child: Container(
             height: 50.h, // ✅ Fix height
             padding: EdgeInsets.symmetric(horizontal: 10.w),
-            decoration: BoxDecoration(
-              border: Border(top: BorderSide(color: Colors.grey)),
-            ),
+
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal, // ✅ Fix overflow issue
               child: Row(
@@ -52,10 +56,15 @@ class AvailableMoversScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: Center(
-        child: Text(
-          "Content Goes Here",
-          style: AppStyles.titleMedium.copyWith(fontSize: 16.sp),
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 10.w),
+        child: ListView.builder(
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return MoversItem(
+              onTap: () => Get.toNamed(AppRoute.moverDetails),
+            );
+          },
         ),
       ),
     );
@@ -63,13 +72,13 @@ class AvailableMoversScreen extends StatelessWidget {
 
   Widget actionsWidget() {
     return Obx(() => Container(
-          width: 89.w,
+          width: 100.w,
           height: 34.h,
           padding: EdgeInsets.symmetric(horizontal: 8.w),
           decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
-            border: Border.all(color: Colors.grey),
+            color: Colors.transparent,
+            borderRadius: BorderRadius.circular(5.r),
+            border: Border.all(color: Colors.black),
           ),
           child: DropdownButton<String>(
             value: moversController
@@ -78,7 +87,8 @@ class AvailableMoversScreen extends StatelessWidget {
               return DropdownMenuItem<String>(
                 value: item,
                 child: Text(item,
-                    style: AppStyles.titleMedium.copyWith(fontSize: 12.sp)),
+                    style: AppStyles.titleMedium
+                        .copyWith(fontSize: 12.sp, color: Colors.black)),
               );
             }).toList(),
             onChanged: (String? newValue) {
@@ -88,7 +98,8 @@ class AvailableMoversScreen extends StatelessWidget {
             },
             underline: SizedBox(),
             isExpanded: true,
-            icon: Icon(Icons.arrow_drop_down, color: Colors.black),
+            icon: SvgPicture.asset(AppConstant.arrowDownIcon,
+                width: 24.w, height: 24.h),
           ),
         ));
   }

@@ -34,6 +34,9 @@ class AppConstant {
   static String lineWaitingImage = '$imagesPath/lineWaitingImage.png';
 
   static String beedRoomImage = '$imagesPath/bedroom.png';
+  static String moverImage = '$imagesPath/moverImage.png';
+  static String storeImage = '$imagesPath/storeImage.png';
+  static String payImage = '$imagesPath/pay_image.png';
 
   ///-----------------icons-----------///
   static String downArrowIcon = '$iconPath/down_arrow.svg';
@@ -55,4 +58,9 @@ class AppConstant {
   static String officeStudioIcon = '$iconPath/corporate_office.svg';
   static String terraceIcon = '$iconPath/terrace.svg';
   static String upsIcon = '$iconPath/up_icon.svg';
+  static String heartIcon = '$iconPath/heart_icon.svg';
+  static String arrowDownIcon = '$iconPath/arrow_down.svg';
+  static String worldIcon = '$iconPath/world_icon.svg';
+  static String timerIcon = '$iconPath/timmer_icon.svg';
+  static String menuIcon = '$iconPath/menu_icon.svg';
 }

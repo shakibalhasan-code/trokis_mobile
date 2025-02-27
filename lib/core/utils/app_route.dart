@@ -6,8 +6,11 @@ import 'package:trokis_mobile/views/screens/initial_screen/user_role_screen.dart
 import 'package:trokis_mobile/views/screens/main_tab_screen.dart';
 import 'package:trokis_mobile/views/screens/user/item_selection/item_selections_screen.dart';
 import 'package:trokis_mobile/views/screens/user/moving/available_movers/available_movers_screen.dart';
+import 'package:trokis_mobile/views/screens/user/moving/driver_info/driver_info_screen.dart';
 import 'package:trokis_mobile/views/screens/user/moving/get_prices_screen.dart';
+import 'package:trokis_mobile/views/screens/user/moving/mover_details/mover_details_screen.dart';
 import 'package:trokis_mobile/views/screens/user/moving/moving_review_screen.dart';
+import 'package:trokis_mobile/views/screens/user/moving/payment_method/payment_method_screen.dart';
 import 'package:trokis_mobile/views/screens/user/starting_location/starting_location_screen.dart';
 
 class AppRoute {
@@ -21,6 +24,9 @@ class AppRoute {
   static const String movingReview = '/movingReview';
   static const String getPrices = '/getPrices';
   static const String availableMovers = '/availableMovers';
+  static const String moverDetails = '/moverDetailsScreen';
+  static const String paymentMethod = '/paymentMethod';
+  static const String driverInfo = '/driverInfo';
 
   static final List<GetPage> pages = [
     GetPage(name: splash, page: () => const SplashScreen()),
@@ -33,5 +39,8 @@ class AppRoute {
     GetPage(name: movingReview, page: () => MovingReviewScreen()),
     GetPage(name: getPrices, page: () => const GetPricesScreen()),
     GetPage(name: availableMovers, page: () => AvailableMoversScreen()),
+    GetPage(name: moverDetails, page: () => MoverDetailsScreen()),
+    GetPage(name: paymentMethod, page: () => PaymentMethodScreen()),
+    GetPage(name: driverInfo, page: () => DriverInfoScreen())
   ];
 }
