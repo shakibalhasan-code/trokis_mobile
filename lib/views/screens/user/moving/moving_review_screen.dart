@@ -68,7 +68,7 @@ class MovingReviewScreen extends StatelessWidget {
               ),
               SizedBox(height: 10.h),
               // Items section content
-              buildItemsSection(),
+              buildItemsSection(isMoving: true),
               SizedBox(height: 10.h),
 
               ///button

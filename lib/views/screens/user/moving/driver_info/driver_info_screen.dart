@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:trokis_mobile/core/helper/widgets_helper.dart';
 import 'package:trokis_mobile/core/utils/app_constant.dart';
+import 'package:trokis_mobile/core/utils/app_route.dart';
 import 'package:trokis_mobile/core/utils/themes/app_styles.dart';
 import 'package:trokis_mobile/views/screens/global_widgets/my_glob_button.dart';
 import 'package:trokis_mobile/views/screens/global_widgets/secondary_button.dart';
@@ -153,54 +156,44 @@ class DriverInfoScreen extends StatelessWidget {
                           Expanded(
                               child: SecondaryButton(
                                   buttonColor: Color(0xff3367CD),
-                                  child: Padding(
-                                    padding:
-                                        EdgeInsets.symmetric(horizontal: 20.w),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Icon(Icons.mail_outlined,
-                                            color: Colors.white),
-                                        SizedBox(
-                                          width: 5.w,
-                                        ),
-                                        Text(
-                                          'Send Message',
-                                          style: AppStyles.titleMedium.copyWith(
-                                              color: Colors.white,
-                                              fontSize: 12.sp),
-                                        )
-                                      ],
-                                    ),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Icon(Icons.mail_outlined,
+                                          color: Colors.white),
+                                      SizedBox(
+                                        width: 5.w,
+                                      ),
+                                      Text(
+                                        'Send Message',
+                                        style: AppStyles.titleMedium.copyWith(
+                                            color: Colors.white,
+                                            fontSize: 12.sp),
+                                      )
+                                    ],
                                   ))),
                           SizedBox(width: 10.w),
                           Expanded(
                               child: SecondaryButton(
                                   buttonColor: Color(0xff5BB458),
-                                  child: Padding(
-                                    padding:
-                                        EdgeInsets.symmetric(horizontal: 20.w),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Icon(Icons.call, color: Colors.white),
-                                        SizedBox(
-                                          width: 5.w,
-                                        ),
-                                        Text(
-                                          'Call',
-                                          style: AppStyles.titleMedium.copyWith(
-                                              color: Colors.white,
-                                              fontSize: 12.sp),
-                                        )
-                                      ],
-                                    ),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Icon(Icons.call, color: Colors.white),
+                                      SizedBox(
+                                        width: 5.w,
+                                      ),
+                                      Text(
+                                        'Call',
+                                        style: AppStyles.titleMedium.copyWith(
+                                            color: Colors.white,
+                                            fontSize: 12.sp),
+                                      )
+                                    ],
                                   )))
                         ],
                       )
@@ -210,9 +203,9 @@ class DriverInfoScreen extends StatelessWidget {
               ),
             )),
             MyGlobButton(
-              text: 'Back to home',
-              isOutline: false,
-            )
+                text: 'Back to home',
+                isOutline: false,
+                onTap: () => Get.offAllNamed(AppRoute.tab))
           ],
         ),
       ),

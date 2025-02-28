@@ -24,6 +24,8 @@ class AppConstant {
   static String homeIcon = '$iconPath/home.svg';
   static String activityIcon = '$iconPath/activity.svg';
   static String chatIcon = '$iconPath/chat.svg';
+  static String messageIcon = '$iconPath/chat_icon.svg';
+
   static String personIcon = '$iconPath/person.svg';
 
   ///-----------------images-----------///
@@ -37,6 +39,7 @@ class AppConstant {
   static String moverImage = '$imagesPath/moverImage.png';
   static String storeImage = '$imagesPath/storeImage.png';
   static String payImage = '$imagesPath/pay_image.png';
+  static String carImage = '$imagesPath/carImage.png';
 
   ///-----------------icons-----------///
   static String downArrowIcon = '$iconPath/down_arrow.svg';
@@ -63,4 +66,7 @@ class AppConstant {
   static String worldIcon = '$iconPath/world_icon.svg';
   static String timerIcon = '$iconPath/timmer_icon.svg';
   static String menuIcon = '$iconPath/menu_icon.svg';
+  static String shareIcon = '$iconPath/share_icon.svg';
+  static String doneIcon = '$iconPath/done_icon.svg';
+  static String doneBorderIcon = '$iconPath/done_icon_border.svg';
 }

@@ -36,6 +36,15 @@ class MapServices extends GetxService {
     _loadCustomMarker();
   }
 
+  /// ✅ Dispose the Google Map Controller
+  void disposeController() async {
+    if (controller.isCompleted) {
+      final GoogleMapController mapController = await controller.future;
+      mapController.dispose();
+      controller = Completer(); // Reset the Completer
+    }
+  }
+
   /// ✅ Load Custom Marker Icon
   Future<void> _loadCustomMarker() async {
     customMarkerIcon = await BitmapDescriptor.fromAssetImage(

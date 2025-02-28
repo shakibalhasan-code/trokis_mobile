@@ -1,6 +1,7 @@
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:trokis_mobile/controller/auth_controller.dart';
+import 'package:trokis_mobile/controller/user_app_controller/activity_controller.dart';
 import 'package:trokis_mobile/controller/user_app_controller/home_controller.dart';
 import 'package:trokis_mobile/controller/tab_controller.dart';
 import 'package:trokis_mobile/controller/user_app_controller/item_selection_controller.dart';
@@ -18,5 +19,6 @@ class AppBinding {
     Get.lazyPut(() => UserStartingLocationController(), fenix: true);
     Get.lazyPut(() => ItemSelectionController(), fenix: true);
     Get.lazyPut(() => MoversController(), fenix: true);
+    Get.lazyPut(() => ActivityController(), fenix: true);
   });
 }

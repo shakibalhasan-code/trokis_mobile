@@ -175,7 +175,7 @@ Widget _buildPhotoSectionItem(String imagePath) {
 }
 
 /// Helper widget for the items section.
-Widget buildItemsSection() {
+Widget buildItemsSection({required bool isMoving}) {
   // Returns a widget for a given item group section.
   Widget buildItemsGroupSection({
     required String iconPath,
@@ -286,20 +286,27 @@ Widget buildItemsSection() {
               'Queen Bed (includes mattress) : 4',
             ],
           ),
-          Text(
-            'Photos/videos',
-            style: AppStyles.titleMedium.copyWith(color: Colors.black),
-          ),
-          SizedBox(height: 8.h),
-          Row(
-            children: [
-              _buildPhotoSectionItem(AppConstant.beedRoomImage),
-              SizedBox(width: 10.w),
-              _buildPhotoSectionItem(AppConstant.beedRoomImage),
-              SizedBox(width: 10.w),
-              _buildPhotoSectionItem(AppConstant.beedRoomImage),
-            ],
-          ),
+          isMoving
+              ? Column(
+                  children: [
+                    Text(
+                      'Photos/videos',
+                      style:
+                          AppStyles.titleMedium.copyWith(color: Colors.black),
+                    ),
+                    SizedBox(height: 8.h),
+                    Row(
+                      children: [
+                        _buildPhotoSectionItem(AppConstant.beedRoomImage),
+                        SizedBox(width: 10.w),
+                        _buildPhotoSectionItem(AppConstant.beedRoomImage),
+                        SizedBox(width: 10.w),
+                        _buildPhotoSectionItem(AppConstant.beedRoomImage),
+                      ],
+                    ),
+                  ],
+                )
+              : SizedBox()
         ],
       ),
     ),

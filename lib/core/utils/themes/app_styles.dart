@@ -16,6 +16,7 @@ class AppStyles {
   static Color greenColor = Color(0xff2FB279);
   static Color babyBlueColor = Color(0xffE8ECFF);
   static Color simpleGrey = Color(0xffF5F7F6);
+  static Color buttonGreen = Color(0xff5BB458);
 
   static TextStyle titleMedium = GoogleFonts.montserrat(
       fontSize: 18.sp, fontWeight: FontWeight.w500, color: textColor);
