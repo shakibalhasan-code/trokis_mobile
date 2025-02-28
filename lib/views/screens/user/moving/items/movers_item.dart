@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:trokis_mobile/core/utils/app_constant.dart';
+import 'package:trokis_mobile/core/utils/app_route.dart';
 import 'package:trokis_mobile/core/utils/themes/app_styles.dart';
 
 class MoversItem extends StatelessWidget {
@@ -115,12 +118,15 @@ class MoversItem extends StatelessWidget {
                             style: AppStyles.titleMedium.copyWith(
                                 fontSize: 12.sp, color: Color(0xff545454)),
                           ),
-                          Text(
-                            'See Profile',
-                            style: AppStyles.titleMedium.copyWith(
-                                color: AppStyles.greenColor,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 12.sp),
+                          InkWell(
+                            onTap: () => Get.toNamed(AppRoute.moverProfile),
+                            child: Text(
+                              'See Profile',
+                              style: AppStyles.titleMedium.copyWith(
+                                  color: AppStyles.greenColor,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 12.sp),
+                            ),
                           )
                         ],
                       )),

@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:trokis_mobile/core/helper/widgets_helper.dart';
 import 'package:trokis_mobile/core/utils/app_constant.dart';
 import 'package:trokis_mobile/core/utils/app_route.dart';
 import 'package:trokis_mobile/core/utils/themes/app_styles.dart';
@@ -18,13 +19,7 @@ class MovingSummaryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppStyles.primaryBgColor,
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () => Get.back(),
-          icon: Icon(Icons.arrow_back_ios, color: Colors.black),
-        ),
-        title: Text('Moving Summary', style: AppStyles.titleMedium),
-      ),
+      appBar: WidgetsHelper.showAppBar(title: 'Moving Summary'),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -272,13 +267,14 @@ class MovingSummaryScreen extends StatelessWidget {
                 width: double.infinity,
                 child: Expanded(
                   child: SecondaryButton(
+                      onTap: () => Get.offAllNamed(AppRoute.tab),
                       child: Center(
-                    child: Text(
-                      'Go to home',
-                      style:
-                          AppStyles.titleMedium.copyWith(color: Colors.black),
-                    ),
-                  )),
+                        child: Text(
+                          'Go to home',
+                          style: AppStyles.titleMedium
+                              .copyWith(color: Colors.black),
+                        ),
+                      )),
                 ),
               ),
             ),

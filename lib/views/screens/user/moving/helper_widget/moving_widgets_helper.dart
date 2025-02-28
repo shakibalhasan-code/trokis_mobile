@@ -158,7 +158,7 @@ Widget buildDateTimeSection() {
 }
 
 /// Helper widget for a photo section item.
-Widget _buildPhotoSectionItem(String imagePath) {
+Widget buildPhotoSectionItem(String imagePath) {
   return Expanded(
     child: SizedBox(
       height: 145.h,
@@ -297,11 +297,11 @@ Widget buildItemsSection({required bool isMoving}) {
                     SizedBox(height: 8.h),
                     Row(
                       children: [
-                        _buildPhotoSectionItem(AppConstant.beedRoomImage),
+                        buildPhotoSectionItem(AppConstant.beedRoomImage),
                         SizedBox(width: 10.w),
-                        _buildPhotoSectionItem(AppConstant.beedRoomImage),
+                        buildPhotoSectionItem(AppConstant.beedRoomImage),
                         SizedBox(width: 10.w),
-                        _buildPhotoSectionItem(AppConstant.beedRoomImage),
+                        buildPhotoSectionItem(AppConstant.beedRoomImage),
                       ],
                     ),
                   ],

@@ -13,6 +13,7 @@ import 'package:trokis_mobile/views/screens/user/moving/moving_review_screen.dar
 import 'package:trokis_mobile/views/screens/user/moving/payment_method/payment_method_screen.dart';
 import 'package:trokis_mobile/views/screens/user/moving/summary/moving_summary_screen.dart';
 import 'package:trokis_mobile/views/screens/user/moving/support/support_screen.dart';
+import 'package:trokis_mobile/views/screens/user/profile/profile_screen.dart';
 import 'package:trokis_mobile/views/screens/user/starting_location/starting_location_screen.dart';
 
 class AppRoute {
@@ -31,6 +32,7 @@ class AppRoute {
   static const String driverInfo = '/driverInfo';
   static const String movingSummary = '/movingSummary';
   static const String support = '/support';
+  static const String moverProfile = '/moverProfile';
 
   static final List<GetPage> pages = [
     GetPage(name: splash, page: () => const SplashScreen()),
@@ -48,5 +50,6 @@ class AppRoute {
     GetPage(name: driverInfo, page: () => DriverInfoScreen()),
     GetPage(name: movingSummary, page: () => MovingSummaryScreen()),
     GetPage(name: support, page: () => SupportScreen()),
+    GetPage(name: moverProfile, page: () => ProfileScreen()),
   ];
 }
