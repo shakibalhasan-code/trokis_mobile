@@ -8,7 +8,7 @@ import 'package:trokis_mobile/core/utils/app_route.dart';
 import 'package:trokis_mobile/core/utils/themes/app_styles.dart';
 import 'package:trokis_mobile/views/screens/global_widgets/my_glob_button.dart';
 import 'package:trokis_mobile/views/screens/global_widgets/white_card_widget.dart';
-import 'package:trokis_mobile/views/screens/user/moving/helper_widget/moving_widgets_helper.dart';
+import 'package:trokis_mobile/views/screens/user/categories/moving/helper_widget/moving_widgets_helper.dart';
 
 class MovingReviewScreen extends StatelessWidget {
   const MovingReviewScreen({Key? key}) : super(key: key);

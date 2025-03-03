@@ -73,6 +73,7 @@ Container move_completed_section() {
                 ),
                 Expanded(
                   child: MyGlobButton(
+                    onTap: () => controller.moveStatus.value = 'finished',
                     text: 'Approve',
                     isOutline: false,
                   ),

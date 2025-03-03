@@ -33,7 +33,7 @@ class MapServices extends GetxService {
     super.onInit();
     await fetchAndSetUserLocation();
     // getPolyPoints();
-    _loadCustomMarker();
+    // _loadCustomMarker();
   }
 
   /// ✅ Dispose the Google Map Controller
@@ -45,11 +45,11 @@ class MapServices extends GetxService {
     }
   }
 
-  /// ✅ Load Custom Marker Icon
-  Future<void> _loadCustomMarker() async {
-    customMarkerIcon = await BitmapDescriptor.fromAssetImage(
-        ImageConfiguration(devicePixelRatio: 2.5), 'assets/images/marker.png');
-  }
+  // /// ✅ Load Custom Marker Icon
+  // Future<void> _loadCustomMarker() async {
+  //   customMarkerIcon = await BitmapDescriptor.fromAssetImage(
+  //       ImageConfiguration(devicePixelRatio: 2.5), 'assets/images/marker.png');
+  // }
 
   /// ✅ Get User's Current Location & Show Marker
   Future<void> fetchAndSetUserLocation() async {

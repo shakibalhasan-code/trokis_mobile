@@ -9,7 +9,7 @@ import 'package:trokis_mobile/core/utils/app_route.dart';
 import 'package:trokis_mobile/core/utils/themes/app_styles.dart';
 import 'package:trokis_mobile/views/screens/global_widgets/my_glob_button.dart';
 import 'package:trokis_mobile/views/screens/global_widgets/secondary_button.dart';
-import 'package:trokis_mobile/views/screens/user/moving/payment_method/components/white_container.dart';
+import 'package:trokis_mobile/views/screens/user/categories/moving/payment_method/components/white_container.dart';
 
 class DriverInfoScreen extends StatelessWidget {
   const DriverInfoScreen({super.key});
@@ -18,7 +18,8 @@ class DriverInfoScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppStyles.primaryBgColor,
-      appBar: WidgetsHelper.showAppBar(title: 'Driver Information'),
+      appBar:
+          WidgetsHelper.showAppBar(title: 'Driver Information', isBack: true),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 24.h),
         child: Column(

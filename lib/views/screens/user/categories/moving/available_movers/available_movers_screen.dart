@@ -6,8 +6,8 @@ import 'package:trokis_mobile/controller/user_app_controller/movers_controller.d
 import 'package:trokis_mobile/core/utils/app_constant.dart';
 import 'package:trokis_mobile/core/utils/app_route.dart';
 import 'package:trokis_mobile/core/utils/themes/app_styles.dart';
-import 'package:trokis_mobile/views/screens/user/moving/items/movers_item.dart';
-import 'package:trokis_mobile/views/screens/user/moving/items/moving_category_item.dart';
+import 'package:trokis_mobile/views/screens/user/categories/moving/items/movers_item.dart';
+import 'package:trokis_mobile/views/screens/user/categories/moving/items/moving_category_item.dart';
 
 class AvailableMoversScreen extends StatelessWidget {
   AvailableMoversScreen({Key? key}) : super(key: key);

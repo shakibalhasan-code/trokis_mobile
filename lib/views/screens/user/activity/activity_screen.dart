@@ -44,8 +44,8 @@ class _ActivityScreenState extends State<ActivityScreen> {
   Future<void> changeSection() async {
     await Future.delayed(Duration(seconds: 5));
     activityController.moveStatus.value = 'completed';
-    await Future.delayed(Duration(seconds: 5));
-    activityController.moveStatus.value = 'finished';
+    // await Future.delayed(Duration(seconds: 5));
+    // activityController.moveStatus.value = 'finished';
   }
 
   @override

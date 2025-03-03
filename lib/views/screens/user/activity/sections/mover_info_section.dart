@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:ripple_wave/ripple_wave.dart';
 import 'package:trokis_mobile/core/utils/app_constant.dart';
 import 'package:trokis_mobile/core/utils/themes/app_styles.dart';
 import 'package:trokis_mobile/views/screens/global_widgets/secondary_button.dart';
+import 'package:trokis_mobile/views/screens/user/categories/moving/support/support_screen.dart';
 
 Padding mover_info_section() {
   return Padding(
@@ -118,6 +121,7 @@ Padding mover_info_section() {
           children: [
             Expanded(
               child: SecondaryButton(
+                  onTap: () => Get.to(SupportScreen(isBack: true)),
                   buttonColor: AppStyles.buttonGreen,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,

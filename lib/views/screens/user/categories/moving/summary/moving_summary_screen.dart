@@ -10,7 +10,8 @@ import 'package:trokis_mobile/core/utils/themes/app_styles.dart';
 import 'package:trokis_mobile/views/screens/global_widgets/my_glob_button.dart';
 import 'package:trokis_mobile/views/screens/global_widgets/secondary_button.dart';
 import 'package:trokis_mobile/views/screens/global_widgets/white_card_widget.dart';
-import 'package:trokis_mobile/views/screens/user/moving/helper_widget/moving_widgets_helper.dart';
+import 'package:trokis_mobile/views/screens/user/categories/moving/helper_widget/moving_widgets_helper.dart';
+import 'package:trokis_mobile/views/screens/user/categories/moving/support/support_screen.dart';
 
 class MovingSummaryScreen extends StatelessWidget {
   const MovingSummaryScreen({Key? key}) : super(key: key);
@@ -19,7 +20,7 @@ class MovingSummaryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppStyles.primaryBgColor,
-      appBar: WidgetsHelper.showAppBar(title: 'Moving Summary'),
+      appBar: WidgetsHelper.showAppBar(title: 'Moving Summary', isBack: false),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -179,7 +180,7 @@ class MovingSummaryScreen extends StatelessWidget {
                       children: [
                         Expanded(
                           child: SecondaryButton(
-                              onTap: () => Get.toNamed(AppRoute.support),
+                              onTap: () => Get.to(SupportScreen(isBack: true)),
                               buttonColor: AppStyles.buttonGreen,
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,

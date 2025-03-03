@@ -23,17 +23,19 @@ class HomeScreen extends StatelessWidget {
                 padding: EdgeInsets.only(bottom: 20.h, top: 20.h),
                 itemCount: homeController.homeCategory.length,
                 itemBuilder: (context, index) {
-                  return categoryItemHome(index);
+                  final category = homeController.homeCategory[index];
+
+                  return categoryItemHome(index, route: category['route']);
                 })),
       )),
     );
   }
 
-  Padding categoryItemHome(int index) {
+  Padding categoryItemHome(int index, {required String route}) {
     return Padding(
       padding: EdgeInsets.only(top: 5.h),
       child: InkWell(
-        onTap: () => Get.toNamed(AppRoute.startingLocation),
+        onTap: () => Get.toNamed(route),
         child: Container(
           width: double.infinity,
           height: 160.h,

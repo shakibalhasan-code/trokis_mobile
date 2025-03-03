@@ -28,5 +28,5 @@ class MoversController extends GetxController {
     'Appliance moving',
   ].obs;
 
-  var selectedShortingMovers = 'By rating'.obs;
+  var selectedShortingMovers = 'Sort by'.obs;
 }

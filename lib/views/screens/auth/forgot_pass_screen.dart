@@ -17,28 +17,41 @@ class ForgotPassScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppStyles.primaryBgColor,
       appBar: AppBar(
-        leading: IconButton(onPressed: ()=> Get.back(), icon: Icon(Icons.arrow_back_ios_new_rounded,color: Colors.black,)),
-      title: Text('Forgot Password',style: AppStyles.titleMedium.copyWith(color: Colors.black)),
-      centerTitle: true,
+        leading: IconButton(
+            onPressed: () => Get.back(),
+            icon: Icon(
+              Icons.arrow_back_ios_new_rounded,
+              color: Colors.black,
+            )),
+        title: Text('Verify',
+            style: AppStyles.titleMedium.copyWith(color: Colors.black)),
+        centerTitle: true,
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: 25.w
-        ),
+        padding: EdgeInsets.symmetric(horizontal: 25.w),
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-               SizedBox(height: 50.h),
-                SizedBox(
-                  width: 200.w,
-                  height: 200.h,
-                  child: Image.asset(AppConstant.mainLogo),
-                ),
-              Text('Verify Number',style: AppStyles.titleMedium.copyWith(fontSize: 23.sp,color: Colors.black),),
+              SizedBox(height: 50.h),
+              SizedBox(
+                width: 200.w,
+                height: 200.h,
+                child: Image.asset(AppConstant.mainLogo),
+              ),
+              Text(
+                'Verify Number',
+                style: AppStyles.titleMedium
+                    .copyWith(fontSize: 23.sp, color: Colors.black),
+              ),
               SizedBox(height: 15.h),
-              Text('Please enter the OTP code, We’ve sent you in your Number.',textAlign: TextAlign.center,style: AppStyles.titleMedium.copyWith(fontSize: 14.sp,color: Colors.black),),
+              Text(
+                'Please enter the OTP code, We’ve sent you in your Number.',
+                textAlign: TextAlign.center,
+                style: AppStyles.titleMedium
+                    .copyWith(fontSize: 14.sp, color: Colors.black),
+              ),
               SizedBox(height: 20.h),
               PinCodeTextField(
                 length: 6,
@@ -63,17 +76,20 @@ class ForgotPassScreen extends StatelessWidget {
                 },
                 onChanged: (value) {
                   print(value);
-
                 },
                 beforeTextPaste: (text) {
                   print("Allowing to paste $text");
                   //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
                   //but you can show anything you want here, like your pop up saying wrong paste format or etc
                   return true;
-                }, appContext: context,
+                },
+                appContext: context,
               ),
               SizedBox(height: 10.h),
-              MyGlobButton(text: 'Verify',isOutline: false,onTap: ()=> Get.offAndToNamed(AppRoute.tab))
+              MyGlobButton(
+                  text: 'Verify',
+                  isOutline: false,
+                  onTap: () => Get.offAndToNamed(AppRoute.tab))
             ],
           ),
         ),

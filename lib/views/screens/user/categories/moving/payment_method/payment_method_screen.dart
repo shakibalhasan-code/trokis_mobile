@@ -10,7 +10,7 @@ import 'package:trokis_mobile/core/utils/themes/app_styles.dart';
 import 'package:trokis_mobile/views/screens/global_widgets/custom_text_container.dart';
 import 'package:trokis_mobile/views/screens/global_widgets/my_glob_button.dart';
 import 'package:trokis_mobile/views/screens/global_widgets/white_card_widget.dart';
-import 'package:trokis_mobile/views/screens/user/moving/payment_method/components/white_container.dart';
+import 'package:trokis_mobile/views/screens/user/categories/moving/payment_method/components/white_container.dart';
 
 class PaymentMethodScreen extends StatelessWidget {
   const PaymentMethodScreen({super.key});
@@ -19,7 +19,7 @@ class PaymentMethodScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppStyles.primaryBgColor,
-      appBar: WidgetsHelper.showAppBar(title: 'Payment Method'),
+      appBar: WidgetsHelper.showAppBar(title: 'Payment Method', isBack: true),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: SingleChildScrollView(

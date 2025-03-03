@@ -61,14 +61,16 @@ class WidgetsHelper {
     );
   }
 
-  static showAppBar({required String title}) {
+  static showAppBar({required String title, required bool isBack}) {
     return AppBar(
       backgroundColor: Colors.transparent,
       title: Text(title,
           style: AppStyles.titleMedium.copyWith(color: Colors.black)),
-      leading: IconButton(
-          onPressed: () => Get.back(),
-          icon: Icon(Icons.arrow_back_ios_new_rounded, color: Colors.black)),
+      leading: isBack!
+          ? IconButton(
+              onPressed: () => Get.back(),
+              icon: Icon(Icons.arrow_back_ios_new_rounded, color: Colors.black))
+          : SizedBox(),
     );
   }
 }

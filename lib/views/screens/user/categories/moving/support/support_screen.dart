@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:trokis_mobile/core/helper/widgets_helper.dart';
 import 'package:trokis_mobile/core/utils/themes/app_styles.dart';
-import 'package:trokis_mobile/views/screens/user/moving/support/components/chat_item.dart';
+import 'package:trokis_mobile/views/screens/user/categories/moving/support/components/chat_item.dart';
 
 class SupportScreen extends StatefulWidget {
-  const SupportScreen({super.key});
+  final bool isBack;
+  const SupportScreen({super.key, required this.isBack});
 
   @override
   State<SupportScreen> createState() => _SupportScreenState();
@@ -38,7 +39,7 @@ class _SupportScreenState extends State<SupportScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppStyles.primaryBgColor,
-      appBar: WidgetsHelper.showAppBar(title: 'Support'),
+      appBar: WidgetsHelper.showAppBar(title: 'Support', isBack: widget.isBack),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 15.w),
         child: Column(

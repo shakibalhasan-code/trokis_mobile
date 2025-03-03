@@ -4,15 +4,16 @@ import 'package:trokis_mobile/views/screens/auth/sign_in_screen.dart';
 import 'package:trokis_mobile/views/screens/initial_screen/splash_screen.dart';
 import 'package:trokis_mobile/views/screens/initial_screen/user_role_screen.dart';
 import 'package:trokis_mobile/views/screens/main_tab_screen.dart';
+import 'package:trokis_mobile/views/screens/user/categories/big_item/big_item_main_screen.dart';
 import 'package:trokis_mobile/views/screens/user/item_selection/item_selections_screen.dart';
-import 'package:trokis_mobile/views/screens/user/moving/available_movers/available_movers_screen.dart';
-import 'package:trokis_mobile/views/screens/user/moving/driver_info/driver_info_screen.dart';
-import 'package:trokis_mobile/views/screens/user/moving/get_prices_screen.dart';
-import 'package:trokis_mobile/views/screens/user/moving/mover_details/mover_details_screen.dart';
-import 'package:trokis_mobile/views/screens/user/moving/moving_review_screen.dart';
-import 'package:trokis_mobile/views/screens/user/moving/payment_method/payment_method_screen.dart';
-import 'package:trokis_mobile/views/screens/user/moving/summary/moving_summary_screen.dart';
-import 'package:trokis_mobile/views/screens/user/moving/support/support_screen.dart';
+import 'package:trokis_mobile/views/screens/user/categories/moving/available_movers/available_movers_screen.dart';
+import 'package:trokis_mobile/views/screens/user/categories/moving/driver_info/driver_info_screen.dart';
+import 'package:trokis_mobile/views/screens/user/categories/moving/get_prices_screen.dart';
+import 'package:trokis_mobile/views/screens/user/categories/moving/mover_details/mover_details_screen.dart';
+import 'package:trokis_mobile/views/screens/user/categories/moving/moving_review_screen.dart';
+import 'package:trokis_mobile/views/screens/user/categories/moving/payment_method/payment_method_screen.dart';
+import 'package:trokis_mobile/views/screens/user/categories/moving/summary/moving_summary_screen.dart';
+import 'package:trokis_mobile/views/screens/user/categories/moving/support/support_screen.dart';
 import 'package:trokis_mobile/views/screens/user/profile/profile_screen.dart';
 import 'package:trokis_mobile/views/screens/user/starting_location/starting_location_screen.dart';
 
@@ -33,6 +34,7 @@ class AppRoute {
   static const String movingSummary = '/movingSummary';
   static const String support = '/support';
   static const String moverProfile = '/moverProfile';
+  static const String bigItem = '/bigItem';
 
   static final List<GetPage> pages = [
     GetPage(name: splash, page: () => const SplashScreen()),
@@ -49,7 +51,12 @@ class AppRoute {
     GetPage(name: paymentMethod, page: () => PaymentMethodScreen()),
     GetPage(name: driverInfo, page: () => DriverInfoScreen()),
     GetPage(name: movingSummary, page: () => MovingSummaryScreen()),
-    GetPage(name: support, page: () => SupportScreen()),
+    GetPage(
+        name: support,
+        page: () => SupportScreen(
+              isBack: true,
+            )),
     GetPage(name: moverProfile, page: () => ProfileScreen()),
+    GetPage(name: bigItem, page: () => BigItemMainScreen())
   ];
 }
