@@ -28,93 +28,93 @@ class MapServices extends GetxService {
     zoom: 14.4746,
   );
 
-  @override
-  void onInit() async {
-    super.onInit();
-    await fetchAndSetUserLocation();
-    // getPolyPoints();
-    // _loadCustomMarker();
-  }
-
-  /// ✅ Dispose the Google Map Controller
-  void disposeController() async {
-    if (controller.isCompleted) {
-      final GoogleMapController mapController = await controller.future;
-      mapController.dispose();
-      controller = Completer(); // Reset the Completer
-    }
-  }
-
-  // /// ✅ Load Custom Marker Icon
-  // Future<void> _loadCustomMarker() async {
-  //   customMarkerIcon = await BitmapDescriptor.fromAssetImage(
-  //       ImageConfiguration(devicePixelRatio: 2.5), 'assets/images/marker.png');
+  // @override
+  // void onInit() async {
+  //   super.onInit();
+  //   await fetchAndSetUserLocation();
+  //   // getPolyPoints();
+  //   // _loadCustomMarker();
   // }
 
-  /// ✅ Get User's Current Location & Show Marker
-  Future<void> fetchAndSetUserLocation() async {
-    try {
-      isLoading.value = true;
-      bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
-      if (!serviceEnabled) {
-        Get.snackbar("Location Error", "Please enable location services.");
-        return;
-      }
+  // /// ✅ Dispose the Google Map Controller
+  // void disposeController() async {
+  //   if (controller.isCompleted) {
+  //     final GoogleMapController mapController = await controller.future;
+  //     mapController.dispose();
+  //     controller = Completer(); // Reset the Completer
+  //   }
+  // }
 
-      LocationPermission permission = await Geolocator.checkPermission();
-      if (permission == LocationPermission.denied) {
-        permission = await Geolocator.requestPermission();
-        if (permission == LocationPermission.deniedForever) {
-          Get.snackbar("Permission Denied",
-              "Location permissions are permanently denied.");
-          return;
-        }
-      }
+  // // /// ✅ Load Custom Marker Icon
+  // // Future<void> _loadCustomMarker() async {
+  // //   customMarkerIcon = await BitmapDescriptor.fromAssetImage(
+  // //       ImageConfiguration(devicePixelRatio: 2.5), 'assets/images/marker.png');
+  // // }
 
-      Position position = await Geolocator.getCurrentPosition(
-          desiredAccuracy: LocationAccuracy.high);
+  // /// ✅ Get User's Current Location & Show Marker
+  // Future<void> fetchAndSetUserLocation() async {
+  //   try {
+  //     isLoading.value = true;
+  //     bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
+  //     if (!serviceEnabled) {
+  //       Get.snackbar("Location Error", "Please enable location services.");
+  //       return;
+  //     }
 
-      selectedLocation.value = LatLng(position.latitude, position.longitude);
-      userAddress.value = await getAddressFromCoordinates(
-          position.latitude, position.longitude);
+  //     LocationPermission permission = await Geolocator.checkPermission();
+  //     if (permission == LocationPermission.denied) {
+  //       permission = await Geolocator.requestPermission();
+  //       if (permission == LocationPermission.deniedForever) {
+  //         Get.snackbar("Permission Denied",
+  //             "Location permissions are permanently denied.");
+  //         return;
+  //       }
+  //     }
 
-      markers.add(
-        Marker(
-          markerId: MarkerId("user_location"),
-          position: selectedLocation.value,
-          icon: customMarkerIcon ??
-              BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
-          infoWindow: InfoWindow(title: "Your Location"),
-        ),
-      );
+  //     Position position = await Geolocator.getCurrentPosition(
+  //         desiredAccuracy: LocationAccuracy.high);
 
-      markers.refresh();
+  //     selectedLocation.value = LatLng(position.latitude, position.longitude);
+  //     userAddress.value = await getAddressFromCoordinates(
+  //         position.latitude, position.longitude);
 
-      if (controller.isCompleted) {
-        final GoogleMapController mapController = await controller.future;
-        mapController.animateCamera(
-            CameraUpdate.newLatLngZoom(selectedLocation.value, 15));
-      }
-    } catch (e) {
-      Get.snackbar("Error", "Failed to get location: $e");
-    } finally {
-      isLoading.value = false;
-    }
-  }
+  //     markers.add(
+  //       Marker(
+  //         markerId: MarkerId("user_location"),
+  //         position: selectedLocation.value,
+  //         icon: customMarkerIcon ??
+  //             BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+  //         infoWindow: InfoWindow(title: "Your Location"),
+  //       ),
+  //     );
 
-  /// ✅ Convert LatLng to Address
-  Future<String> getAddressFromCoordinates(double lat, double lng) async {
-    try {
-      List<Placemark> placemarks = await placemarkFromCoordinates(lat, lng);
-      if (placemarks.isNotEmpty) {
-        Placemark place = placemarks[0];
-        return "${place.name}, ${place.locality}, ${place.administrativeArea}, ${place.country}";
-      }
-      return "No address found";
-    } catch (e) {
-      return "Error: $e";
-    }
-  }
+  //     markers.refresh();
+
+  //     if (controller.isCompleted) {
+  //       final GoogleMapController mapController = await controller.future;
+  //       mapController.animateCamera(
+  //           CameraUpdate.newLatLngZoom(selectedLocation.value, 15));
+  //     }
+  //   } catch (e) {
+  //     Get.snackbar("Error", "Failed to get location: $e");
+  //   } finally {
+  //     isLoading.value = false;
+  //   }
+  // }
+
+  // /// ✅ Convert LatLng to Address
+  // Future<String> getAddressFromCoordinates(double lat, double lng) async {
+  //   try {
+  //     List<Placemark> placemarks = await placemarkFromCoordinates(lat, lng);
+  //     if (placemarks.isNotEmpty) {
+  //       Placemark place = placemarks[0];
+  //       return "${place.name}, ${place.locality}, ${place.administrativeArea}, ${place.country}";
+  //     }
+  //     return "No address found";
+  //   } catch (e) {
+  //     return "Error: $e";
+  //   }
+  // }
 
   // void getPolyPoints() async {
   //   PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(

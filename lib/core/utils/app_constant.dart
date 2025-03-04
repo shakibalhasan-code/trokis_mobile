@@ -6,10 +6,11 @@ class AppConstant {
 
   ///---------------icons----------///
 
-  //path of icons
+  //paths
   static String iconPath = 'assets/icons';
   static String logoPath = 'assets/logo';
   static String imagesPath = 'assets/images';
+  static String lottiePath = 'assets/lotties';
 
   ///brand_logo
   static String coverLogo = '$imagesPath/cover_logo.png';
@@ -70,4 +71,7 @@ class AppConstant {
   static String doneIcon = '$iconPath/done_icon.svg';
   static String doneBorderIcon = '$iconPath/done_icon_border.svg';
   static String truckIcon = '$iconPath/track_icon.svg';
+
+  ///lotties
+  static String deliveryBoyLottie = '$lottiePath/delivery.json';
 }

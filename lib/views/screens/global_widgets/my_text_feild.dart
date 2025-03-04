@@ -9,16 +9,18 @@ class MyTextFeild extends StatelessWidget {
   final TextInputType inputType;
   final TextEditingController controller;
   final String hintText;
-  final String suffixSVGIconPath;
+  final String? suffixSVGIconPath;
   final Color colorIcon;
   final bool? isEditable;
+  final int? maxLines;
   const MyTextFeild(
       {super.key,
       required this.inputType,
       required this.controller,
       required this.hintText,
-      required this.suffixSVGIconPath,
+      this.suffixSVGIconPath,
       required this.colorIcon,
+      this.maxLines,
       this.isEditable});
 
   @override
@@ -31,19 +33,22 @@ class MyTextFeild extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 5),
         child: TextFormField(
+          maxLines: maxLines,
           decoration: InputDecoration(
             enabled: isEditable ?? true,
             hintText: hintText,
             hintStyle: AppStyles.titleMedium.copyWith(fontSize: 16.sp),
             border: InputBorder.none,
-            suffixIcon: SizedBox(
-              width: 18.w,
-              height: 20.h,
-              child: SvgPicture.asset(
-                suffixSVGIconPath,
-                color: colorIcon,
-              ),
-            ),
+            suffixIcon: suffixSVGIconPath != null
+                ? SizedBox(
+                    width: 18.w,
+                    height: 20.h,
+                    child: SvgPicture.asset(
+                      suffixSVGIconPath!,
+                      color: colorIcon,
+                    ),
+                  )
+                : SizedBox(),
             // Optionally, you can also adjust constraints:
             suffixIconConstraints: BoxConstraints(
               minWidth: 20.w,

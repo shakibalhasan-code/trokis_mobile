@@ -21,11 +21,9 @@ class MyGoogleMap extends StatelessWidget {
         if (!_mapServices.controller.isCompleted) {
           _mapServices.controller.complete(controller);
         }
-        _mapServices
-            .fetchAndSetUserLocation(); // ✅ Ensure location is fetched on map creation
       },
-      markers:
-          _mapServices.markers.value, // ✅ Ensure markers are passed to the map
+      // markers:
+      //     _mapServices.markers.value, // ✅ Ensure markers are passed to the map
       // polylines: {
       //   Polyline(
       //     polylineId: const PolylineId("route"),

@@ -17,7 +17,7 @@ class HomeController extends GetxController {
     {
       'title': 'Helpers',
       'image': AppConstant.helpersImage,
-      'route': AppRoute.startingLocation
+      'route': AppRoute.helper
     },
     {
       'title': 'Errands',

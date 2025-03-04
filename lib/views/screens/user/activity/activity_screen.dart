@@ -12,6 +12,7 @@ import 'package:trokis_mobile/core/services/map_services.dart';
 import 'package:trokis_mobile/core/utils/app_constant.dart';
 import 'package:trokis_mobile/core/utils/themes/app_styles.dart';
 import 'package:trokis_mobile/views/screens/global_widgets/my_glob_button.dart';
+import 'package:trokis_mobile/views/screens/global_widgets/my_google_map.dart';
 import 'package:trokis_mobile/views/screens/global_widgets/secondary_button.dart';
 import 'package:trokis_mobile/views/screens/user/activity/sections/move_completed_section.dart';
 import 'package:trokis_mobile/views/screens/user/activity/sections/move_finished_section.dart';
@@ -27,12 +28,6 @@ class ActivityScreen extends StatefulWidget {
 class _ActivityScreenState extends State<ActivityScreen> {
   final _mapServices = Get.find<MapServices>();
   final activityController = Get.find<ActivityController>();
-
-  @override
-  void dispose() {
-    _mapServices.disposeController(); // Dispose of the controller properly
-    super.dispose();
-  }
 
   @override
   void initState() {
@@ -60,25 +55,7 @@ class _ActivityScreenState extends State<ActivityScreen> {
               Positioned.fill(
                 left: 0,
                 right: 0,
-                child: SizedBox(
-                  width: double.infinity,
-                  child: GoogleMap(
-                    zoomControlsEnabled: false,
-                    zoomGesturesEnabled: true,
-                    myLocationEnabled: true,
-                    mapType: MapType.normal,
-                    initialCameraPosition: MapServices.kGooglePlex,
-                    onMapCreated: (GoogleMapController controller) {
-                      if (!_mapServices.controller.isCompleted) {
-                        _mapServices.controller.complete(controller);
-                      }
-                      _mapServices.fetchAndSetUserLocation();
-                    },
-
-                    markers: _mapServices.markers
-                        .value, // ✅ Ensure markers are passed to the map
-                  ),
-                ),
+                child: SizedBox(width: double.infinity, child: MyGoogleMap()),
               ),
               Positioned(
                 left: 0,

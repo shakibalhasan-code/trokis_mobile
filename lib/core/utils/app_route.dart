@@ -5,6 +5,10 @@ import 'package:trokis_mobile/views/screens/initial_screen/splash_screen.dart';
 import 'package:trokis_mobile/views/screens/initial_screen/user_role_screen.dart';
 import 'package:trokis_mobile/views/screens/main_tab_screen.dart';
 import 'package:trokis_mobile/views/screens/user/categories/big_item/big_item_main_screen.dart';
+import 'package:trokis_mobile/views/screens/user/categories/helpers/finding_helper.dart';
+import 'package:trokis_mobile/views/screens/user/categories/helpers/helper_list_screen.dart';
+import 'package:trokis_mobile/views/screens/user/categories/helpers/helper_screen.dart';
+import 'package:trokis_mobile/views/screens/user/categories/pickup/pickup_main_screen.dart';
 import 'package:trokis_mobile/views/screens/user/item_selection/item_selections_screen.dart';
 import 'package:trokis_mobile/views/screens/user/categories/moving/available_movers/available_movers_screen.dart';
 import 'package:trokis_mobile/views/screens/user/categories/moving/driver_info/driver_info_screen.dart';
@@ -35,6 +39,10 @@ class AppRoute {
   static const String support = '/support';
   static const String moverProfile = '/moverProfile';
   static const String bigItem = '/bigItem';
+  static const String pickUp = '/pickup';
+  static const String helper = '/helper';
+  static const String findingHelper = '/findingHelper';
+  static const String availableHelper = '/availableHelper';
 
   static final List<GetPage> pages = [
     GetPage(name: splash, page: () => const SplashScreen()),
@@ -57,6 +65,10 @@ class AppRoute {
               isBack: true,
             )),
     GetPage(name: moverProfile, page: () => ProfileScreen()),
-    GetPage(name: bigItem, page: () => BigItemMainScreen())
+    GetPage(name: bigItem, page: () => BigItemMainScreen()),
+    GetPage(name: pickUp, page: () => PickupMainScreen()),
+    GetPage(name: helper, page: () => HelperScreen()),
+    GetPage(name: findingHelper, page: () => FindingHelperScreen()),
+    GetPage(name: availableHelper, page: () => HelperListScreen())
   ];
 }
