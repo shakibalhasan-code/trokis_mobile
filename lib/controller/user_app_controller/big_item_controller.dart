@@ -7,7 +7,10 @@ class BigItemController extends GetxController {
   RxBool selectedCargo =
       true.obs; // To track the cargo loading/unloading selection
 
+  ///transportation/finding/accepted
   var currentSection = 'transportation'.obs;
 
+  var isCheckTerms = true.obs;
+  var isDeliveryCompleted = false.obs;
   var isShowMovers = true.obs;
 }
