@@ -8,6 +8,7 @@ import 'package:trokis_mobile/views/screens/user/categories/big_item/big_item_ma
 import 'package:trokis_mobile/views/screens/user/categories/helpers/finding_helper.dart';
 import 'package:trokis_mobile/views/screens/user/categories/helpers/helper_list_screen.dart';
 import 'package:trokis_mobile/views/screens/user/categories/helpers/helper_screen.dart';
+import 'package:trokis_mobile/views/screens/user/categories/helpers/review_helper_request_screen.dart';
 import 'package:trokis_mobile/views/screens/user/categories/pickup/pickup_main_screen.dart';
 import 'package:trokis_mobile/views/screens/user/item_selection/item_selections_screen.dart';
 import 'package:trokis_mobile/views/screens/user/categories/moving/available_movers/available_movers_screen.dart';
@@ -43,6 +44,7 @@ class AppRoute {
   static const String helper = '/helper';
   static const String findingHelper = '/findingHelper';
   static const String availableHelper = '/availableHelper';
+  static const String reviewHelpRequest = '/reviewHelpRequest';
 
   static final List<GetPage> pages = [
     GetPage(name: splash, page: () => const SplashScreen()),
@@ -69,6 +71,7 @@ class AppRoute {
     GetPage(name: pickUp, page: () => PickupMainScreen()),
     GetPage(name: helper, page: () => HelperScreen()),
     GetPage(name: findingHelper, page: () => FindingHelperScreen()),
-    GetPage(name: availableHelper, page: () => HelperListScreen())
+    GetPage(name: availableHelper, page: () => HelperListScreen()),
+    GetPage(name: reviewHelpRequest, page: () => ReviewHelperRequestScreen()),
   ];
 }

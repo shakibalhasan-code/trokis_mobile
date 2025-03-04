@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:trokis_mobile/core/utils/app_constant.dart';
@@ -145,11 +146,15 @@ class HelperListItem extends StatelessWidget {
                     ),
                   ),
                 ),
-                SvgPicture.asset(
-                  AppConstant.doneBorderIcon,
-                  height: 24.h,
-                  width: 24.w,
-                  color: Colors.black,
+                Positioned(
+                  left: 8.w,
+                  top: 8.h,
+                  child: SvgPicture.asset(
+                    AppConstant.doneBorderIcon,
+                    height: 24.h,
+                    width: 24.w,
+                    color: Colors.black,
+                  ),
                 )
               ],
             ),

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:trokis_mobile/core/helper/widgets_helper.dart';
+import 'package:trokis_mobile/core/utils/app_route.dart';
 import 'package:trokis_mobile/core/utils/themes/app_styles.dart';
 import 'package:trokis_mobile/views/screens/global_widgets/my_glob_button.dart';
 import 'package:trokis_mobile/views/screens/user/categories/helpers/components/helper_list_item.dart';
@@ -24,10 +27,9 @@ class HelperListScreen extends StatelessWidget {
                       return HelperListItem(onTap: () {});
                     })),
             MyGlobButton(
-              text: 'Next',
-              isOutline: false,
-              onTap: () {},
-            )
+                text: 'Next',
+                isOutline: false,
+                onTap: () => Get.toNamed(AppRoute.reviewHelpRequest))
           ],
         ),
       ),

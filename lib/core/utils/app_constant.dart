@@ -71,6 +71,7 @@ class AppConstant {
   static String doneIcon = '$iconPath/done_icon.svg';
   static String doneBorderIcon = '$iconPath/done_icon_border.svg';
   static String truckIcon = '$iconPath/track_icon.svg';
+  static String editIcon = '$iconPath/edit_icon.svg';
 
   ///lotties
   static String deliveryBoyLottie = '$lottiePath/delivery.json';
