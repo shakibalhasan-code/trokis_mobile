@@ -6,4 +6,8 @@ class BigItemController extends GetxController {
   RxString selectedTime = 'Now'.obs; // To track the time selection
   RxBool selectedCargo =
       true.obs; // To track the cargo loading/unloading selection
+
+  var currentSection = 'transportation'.obs;
+
+  var isShowMovers = true.obs;
 }

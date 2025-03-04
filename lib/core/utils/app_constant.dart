@@ -69,4 +69,5 @@ class AppConstant {
   static String shareIcon = '$iconPath/share_icon.svg';
   static String doneIcon = '$iconPath/done_icon.svg';
   static String doneBorderIcon = '$iconPath/done_icon_border.svg';
+  static String truckIcon = '$iconPath/track_icon.svg';
 }

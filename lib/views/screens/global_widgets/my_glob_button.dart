@@ -7,7 +7,14 @@ class MyGlobButton extends StatelessWidget {
   final String text;
   final bool? isOutline;
   final VoidCallback? onTap;
-  const MyGlobButton({super.key, required this.text, this.isOutline, this.onTap});
+  final Color? textColor;
+
+  const MyGlobButton(
+      {super.key,
+      required this.text,
+      this.isOutline,
+      this.onTap,
+      this.textColor});
 
   @override
   Widget build(BuildContext context) {
@@ -17,18 +24,25 @@ class MyGlobButton extends StatelessWidget {
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          color: isOutline == true ? AppStyles.whiteColor : AppStyles.primaryColor,
-          border: Border.all(color: isOutline==true ? AppStyles.primaryColor : Colors.transparent),
-          borderRadius: BorderRadius.circular(12.r)
-
-        ),
+            color: isOutline == true
+                ? AppStyles.whiteColor
+                : AppStyles.primaryColor,
+            border: Border.all(
+                color: isOutline == true
+                    ? AppStyles.primaryColor
+                    : Colors.transparent),
+            borderRadius: BorderRadius.circular(12.r)),
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 10.h),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(text,style: AppStyles.titleMedium.copyWith(color: isOutline! ? AppStyles.primaryColor : AppStyles.whiteColor))
+              Text(text,
+                  style: AppStyles.titleMedium.copyWith(
+                      color: isOutline!
+                          ? AppStyles.primaryColor
+                          : AppStyles.whiteColor))
             ],
           ),
         ),
