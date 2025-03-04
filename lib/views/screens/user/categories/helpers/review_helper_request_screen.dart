@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:trokis_mobile/core/helper/widgets_helper.dart';
 import 'package:trokis_mobile/core/utils/app_constant.dart';
+import 'package:trokis_mobile/core/utils/app_route.dart';
 import 'package:trokis_mobile/core/utils/themes/app_styles.dart';
 import 'package:trokis_mobile/views/screens/global_widgets/my_glob_button.dart';
 
@@ -152,6 +155,7 @@ class ReviewHelperRequestScreen extends StatelessWidget {
                       return hired_item_build_method();
                     })),
             MyGlobButton(
+              onTap: () => Get.toNamed(AppRoute.depositRequired),
               text: 'Next',
               isOutline: false,
             ),
