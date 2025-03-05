@@ -7,6 +7,7 @@ import 'package:trokis_mobile/controller/user_app_controller/helpers_controller.
 import 'package:trokis_mobile/controller/user_app_controller/home_controller.dart';
 import 'package:trokis_mobile/controller/tab_controller.dart';
 import 'package:trokis_mobile/controller/user_app_controller/item_selection_controller.dart';
+import 'package:trokis_mobile/controller/user_app_controller/line_waiting_controller.dart';
 import 'package:trokis_mobile/controller/user_app_controller/movers_controller.dart';
 import 'package:trokis_mobile/controller/user_app_controller/user_starting_location_controller.dart';
 import 'package:trokis_mobile/core/services/map_services.dart';
@@ -24,5 +25,6 @@ class AppBinding {
     Get.lazyPut(() => ActivityController(), fenix: true);
     Get.lazyPut(() => BigItemController(), fenix: true);
     Get.lazyPut(() => HelpersController(), fenix: true);
+    Get.lazyPut(() => LineWaitingController(), fenix: true);
   });
 }

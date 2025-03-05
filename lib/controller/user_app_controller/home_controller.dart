@@ -27,7 +27,7 @@ class HomeController extends GetxController {
     {
       'title': 'Line waiting',
       'image': AppConstant.lineWaitingImage,
-      'route': AppRoute.startingLocation
+      'route': AppRoute.lineWaiting
     },
   ];
 }

@@ -11,6 +11,12 @@ import 'package:trokis_mobile/views/screens/user/categories/helpers/helper_list_
 import 'package:trokis_mobile/views/screens/user/categories/helpers/helper_screen.dart';
 import 'package:trokis_mobile/views/screens/user/categories/helpers/helper_summary_screen.dart';
 import 'package:trokis_mobile/views/screens/user/categories/helpers/review_helper_request_screen.dart';
+import 'package:trokis_mobile/views/screens/user/categories/line_waiting/available_bid_prices_screen.dart';
+import 'package:trokis_mobile/views/screens/user/categories/line_waiting/finding_line_waiting.dart';
+import 'package:trokis_mobile/views/screens/user/categories/line_waiting/line_waiting_screen.dart';
+import 'package:trokis_mobile/views/screens/user/categories/line_waiting/payment_method_lining_screen.dart';
+import 'package:trokis_mobile/views/screens/user/categories/line_waiting/review_line_waiting_screen.dart';
+import 'package:trokis_mobile/views/screens/user/categories/line_waiting/summary_lining_screen.dart';
 import 'package:trokis_mobile/views/screens/user/categories/pickup/pickup_main_screen.dart';
 import 'package:trokis_mobile/views/screens/user/item_selection/item_selections_screen.dart';
 import 'package:trokis_mobile/views/screens/user/categories/moving/available_movers/available_movers_screen.dart';
@@ -49,6 +55,12 @@ class AppRoute {
   static const String reviewHelpRequest = '/reviewHelpRequest';
   static const String depositRequired = '/depositRequired';
   static const String summaryHelper = '/summaryHelper';
+  static const String lineWaiting = '/lineWaiting';
+  static const String reviewLineWaiting = '/reviewLineWaiting';
+  static const String findingLineWaiting = '/findingLineWaiting';
+  static const String lineWaitingBid = '/lineWaitingBid';
+  static const String paymentMethodLining = '/paymentMethodLining';
+  static const String liningSummary = '/liningSummary';
 
   static final List<GetPage> pages = [
     GetPage(name: splash, page: () => const SplashScreen()),
@@ -78,6 +90,12 @@ class AppRoute {
     GetPage(name: availableHelper, page: () => HelperListScreen()),
     GetPage(name: reviewHelpRequest, page: () => ReviewHelperRequestScreen()),
     GetPage(name: depositRequired, page: () => DepostiRequiredScreen()),
-    GetPage(name: summaryHelper, page: () => HelperSummaryScreen())
+    GetPage(name: summaryHelper, page: () => HelperSummaryScreen()),
+    GetPage(name: lineWaiting, page: () => LineWaitingScreen()),
+    GetPage(name: reviewLineWaiting, page: () => ReviewLineWaitingScreen()),
+    GetPage(name: findingLineWaiting, page: () => FindingLineWaiting()),
+    GetPage(name: lineWaitingBid, page: () => AvailableBidPricesScreen()),
+    GetPage(name: paymentMethodLining, page: () => PaymentMethodLiningScreen()),
+    GetPage(name: liningSummary, page: () => SummaryLiningScreen())
   ];
 }
