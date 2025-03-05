@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:trokis_mobile/core/helper/widgets_helper.dart';
+import 'package:trokis_mobile/core/utils/app_route.dart';
 import 'package:trokis_mobile/core/utils/themes/app_styles.dart';
 import 'package:trokis_mobile/views/screens/global_widgets/my_glob_button.dart';
 
@@ -44,6 +47,7 @@ class DepostiRequiredScreen extends StatelessWidget {
             ),
             SizedBox(height: 15.h),
             MyGlobButton(
+              onTap: () => Get.toNamed(AppRoute.summaryHelper),
               text: 'Next',
               isOutline: false,
             )

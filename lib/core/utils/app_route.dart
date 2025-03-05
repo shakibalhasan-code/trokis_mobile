@@ -9,6 +9,7 @@ import 'package:trokis_mobile/views/screens/user/categories/helpers/deposti_requ
 import 'package:trokis_mobile/views/screens/user/categories/helpers/finding_helper.dart';
 import 'package:trokis_mobile/views/screens/user/categories/helpers/helper_list_screen.dart';
 import 'package:trokis_mobile/views/screens/user/categories/helpers/helper_screen.dart';
+import 'package:trokis_mobile/views/screens/user/categories/helpers/helper_summary_screen.dart';
 import 'package:trokis_mobile/views/screens/user/categories/helpers/review_helper_request_screen.dart';
 import 'package:trokis_mobile/views/screens/user/categories/pickup/pickup_main_screen.dart';
 import 'package:trokis_mobile/views/screens/user/item_selection/item_selections_screen.dart';
@@ -47,6 +48,7 @@ class AppRoute {
   static const String availableHelper = '/availableHelper';
   static const String reviewHelpRequest = '/reviewHelpRequest';
   static const String depositRequired = '/depositRequired';
+  static const String summaryHelper = '/summaryHelper';
 
   static final List<GetPage> pages = [
     GetPage(name: splash, page: () => const SplashScreen()),
@@ -75,6 +77,7 @@ class AppRoute {
     GetPage(name: findingHelper, page: () => FindingHelperScreen()),
     GetPage(name: availableHelper, page: () => HelperListScreen()),
     GetPage(name: reviewHelpRequest, page: () => ReviewHelperRequestScreen()),
-    GetPage(name: depositRequired, page: () => DepostiRequiredScreen())
+    GetPage(name: depositRequired, page: () => DepostiRequiredScreen()),
+    GetPage(name: summaryHelper, page: () => HelperSummaryScreen())
   ];
 }
